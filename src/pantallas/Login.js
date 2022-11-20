@@ -9,11 +9,6 @@ export default function App() {
           <Text style={Estilos.textoTitulo}>Inicio de Sesión</Text>
         </View>
       </ImageBackground>
-      {/* View secundario */}
-      <View>
-        {/* Bienvenida */}
-        <View style={Estilos.secundario}></View>
-      </View>
     </ScrollView>
   );
 }

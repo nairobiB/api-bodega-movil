@@ -18,11 +18,5 @@ const Estilos = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
   },
-  secundario: {
-    flex: 1.5,
-    backgroundColor: "red",
-    borderTopStartRadius: 60,
-    borderTopEndRadius: 60,
-  },
 });
 export default Estilos;
