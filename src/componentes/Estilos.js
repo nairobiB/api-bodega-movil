@@ -5,7 +5,7 @@ const Estilos = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   imagenLogin: {
-    height: Dimensions.get("window").height / 2.6,
+    height: Dimensions.get("window").height / 2.5,
   },
   firstView: {
     flex: 1,
@@ -13,10 +13,35 @@ const Estilos = StyleSheet.create({
     alignItems: "center",
   },
   textoTitulo: {
-    color: "#ffffff",
-    fontSize: 45,
+    color: "white",
+    fontSize: 30,
+    marginTop: 20,
     fontWeight: "bold",
     textTransform: "uppercase",
+  },
+  bottomView: {
+    flex: 1.5,
+    backgroundColor: "white",
+    bottom: 50,
+    borderTopStartRadius: 50,
+    borderTopEndRadius: 50,
+  },
+  textoInicio: {
+    color: "#302a8a",
+    fontSize: 30,
+    fontWeight: "500",
+  },
+  labelLogin: {
+    fontSize: 20,
+    marginBottom: 15,
+    marginTop: 15,
+    color: "#6c757d",
+  },
+  btnLogin: {
+    alignSelf: "center",
+    backgroundColor: "#302a8a",
+    width: Dimensions.get("window").width / 1.5,
+    borderRadius: 40,
   },
 });
 export default Estilos;
