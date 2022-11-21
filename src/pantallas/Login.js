@@ -9,7 +9,7 @@ export default function App() {
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="person" size={65} color={"white"} />
+          <Icon as={Ionicons} name="log-in" size={65} color={"white"} />
           <Text style={Estilos.textoTitulo}>Inicio de Sesión</Text>
         </View>
       </ImageBackground>
