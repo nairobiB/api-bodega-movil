@@ -22,7 +22,7 @@ export default function App() {
             Por favor, ingrese sus datos
           </Text>
           {/* Entrada de datos */}
-          <View style={{ marginTop: 50 }}>
+          <View style={{ marginTop: 25 }}>
             {/* Usuario */}
             <Text style={Estilos.labelLogin}>Usuario</Text>
             <Input
