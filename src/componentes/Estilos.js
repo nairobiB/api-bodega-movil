@@ -84,6 +84,28 @@ const Estilos = StyleSheet.create({
     marginTop: 15,
     color: "#28272c",
   },
+  entradas: {
+    borderWidth: 1,
+    borderColor: "#808080",
+    borderRadius: 4,
+    padding: 7,
+    fontSize: 14,
+    marginBottom:2,
+  },
+  entradas_error: {
+    borderWidth: 1,
+    borderColor: "red",
+    borderRadius: 4,
+    padding: 7,
+    fontSize: 14,
+    marginBottom:2,
+  },
+  etiqueta_error: {
+    fontSize: 12,
+    marginBottom: 1,
+    marginLeft:5,
+    color: "red",
+  },
   estados: {
     flexDirection: "row",
     justifyContent: "space-between",
