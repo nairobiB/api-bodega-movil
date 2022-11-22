@@ -5,7 +5,6 @@ import CrudClientes from "./src/pantallas/Crudclientes";
 import { NativeBaseProvider } from "native-base";
 export default function App() {
   return (
-    
     <NativeBaseProvider>
       <CrudClientes></CrudClientes>
     </NativeBaseProvider>
