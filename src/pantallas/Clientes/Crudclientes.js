@@ -1,4 +1,4 @@
-import Estilos from "../componentes/Estilos";
+import Estilos from "../../componentes/Estilos";
 import {
   Text,
   ScrollView,
@@ -75,7 +75,7 @@ export default function App() {
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Fecha de nacimiento</Text>
-            <Input size={"lg"} variant="outline" placeholder="YY/MM/DD" />
+            <Input size={"lg"} variant="outline" placeholder="YYYY-MM-DD" />
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>RTN</Text>
