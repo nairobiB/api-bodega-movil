@@ -27,7 +27,7 @@ export default function App() {
           flexDirection="row"
           style={{ marginTop: 50 }}
         >
-          AGREGAR CLIENTE
+          DETALLES DE REGISTRO
         </Heading>
         <Divider
           my="2"
@@ -41,64 +41,50 @@ export default function App() {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Nombre completo</Text>
+            <Text style={Estilos.labelCruds}>Producto</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese nombre completo del cliente"
+              placeholder="Producto"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Dirección</Text>
+            <Text style={Estilos.labelCruds}>Tamaño</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese la direccion del cliente"
+              placeholder="Ingrese el tamaño del producto"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Correo</Text>
+            <Text style={Estilos.labelCruds}>Lote</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese correo del cliente"
+              placeholder="Ingrese el numero de lote"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Telefono</Text>
+            <Text style={Estilos.labelCruds}>Precio</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese el número del cliente"
+              placeholder="Ingrese el precio del producto"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Fecha de nacimiento</Text>
+            <Text style={Estilos.labelCruds}>Fecha de vencimiento</Text>
             <Input size={"lg"} variant="outline" placeholder="YYYY-MM-DD" />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>RTN</Text>
+            <Text style={Estilos.labelCruds}>Seccion</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese el RTN del cliente"
+              placeholder="seccion"
             />
           </View>
-          <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Imagen</Text>
-            <Button
-              leftIcon={
-                <Icon as={Ionicons} name="cloud-upload-outline" size="sm" />
-              }
-            >
-              Cargar imagen
-            </Button>
-          </View>
 
-          <View style={Estilos.estados}>
-            <Text style={Estilos.labelCruds}>Activo</Text>
-            <Switch size="lg" />
-          </View>
           <View style={Estilos.contenedorBotones}>
             <Button style={Estilos.botones} color={"red"}>
               Cancelar

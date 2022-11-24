@@ -27,7 +27,7 @@ export default function App() {
           flexDirection="row"
           style={{ marginTop: 50 }}
         >
-          AGREGAR CLIENTE
+          AGREGAR REGISTRO
         </Heading>
         <Divider
           my="2"
@@ -41,64 +41,65 @@ export default function App() {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Nombre completo</Text>
+            <Text style={Estilos.labelCruds}>Cliente</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese nombre completo del cliente"
+              placeholder="Ingrese nombre del cliente"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Dirección</Text>
+            <Text style={Estilos.labelCruds}>Fecha de ingreso</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese la direccion del cliente"
+              placeholder="YYYY-MM-DD"
             />
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Correo</Text>
+            <Text style={Estilos.labelCruds}>Sucursal</Text>
             <Input
               size={"lg"}
               variant="outline"
-              placeholder="Ingrese correo del cliente"
+              placeholder="Nombre sucursal"
             />
-          </View>
-          <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Telefono</Text>
-            <Input
-              size={"lg"}
-              variant="outline"
-              placeholder="Ingrese el número del cliente"
-            />
-          </View>
-          <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Fecha de nacimiento</Text>
-            <Input size={"lg"} variant="outline" placeholder="YYYY-MM-DD" />
-          </View>
-          <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>RTN</Text>
-            <Input
-              size={"lg"}
-              variant="outline"
-              placeholder="Ingrese el RTN del cliente"
-            />
-          </View>
-          <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Imagen</Text>
-            <Button
-              leftIcon={
-                <Icon as={Ionicons} name="cloud-upload-outline" size="sm" />
-              }
-            >
-              Cargar imagen
-            </Button>
           </View>
 
-          <View style={Estilos.estados}>
-            <Text style={Estilos.labelCruds}>Activo</Text>
-            <Switch size="lg" />
-          </View>
+          <View style={Estilos.busqueda}>
+        <VStack
+          my="4"
+          space={5}
+          w="100%"
+          maxW="300px"
+          divider={
+            <Box px="2">
+              <Divider />
+            </Box>
+          }
+        >
+          <VStack w="100%" space={5} alignSelf="center">
+            <Heading fontSize="lg">Agregar producto</Heading>
+            <Input
+              placeholder="Search"
+              variant="filled"
+              width="100%"
+              borderRadius="10"
+              py="1"
+              size={"lg"}
+              px="2"
+              InputLeftElement={
+                <Icon
+                  ml="2"
+                  size="4"
+                  color="gray.400"
+                  as={<Ionicons name="ios-search" />}
+                />
+              }
+            />
+          </VStack>
+        </VStack>
+      </View>
+
           <View style={Estilos.contenedorBotones}>
             <Button style={Estilos.botones} color={"red"}>
               Cancelar
@@ -112,3 +113,4 @@ export default function App() {
     </ScrollView>
   );
 }
+

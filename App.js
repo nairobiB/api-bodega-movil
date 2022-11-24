@@ -3,6 +3,7 @@ import Clientes from "./src/pantallas/Clientes/Clientes";
 import Roles from "./src/pantallas/Roles/Roles";
 import Inicio from "./src/pantallas/Inicio";
 import Personal from "./src/pantallas/Personal/Personal";
+import Entradas from "./src/pantallas/Entradas/DetallesEntrada";
 //Fin Importar pantallas
 
 //Inicio importar librerías
@@ -19,6 +20,7 @@ export default function App() {
       <NavigationContainer initialRouteName="Inicio">
         <Drawer.Navigator>
           <Drawer.Screen name="Inicio" component={Inicio} />
+          <Drawer.Screen name="Entradas" component={Entradas} />
           <Drawer.Screen name="Roles" component={Roles} />
           <Drawer.Screen name="Clientes" component={Clientes} />
           <Drawer.Screen name="Personal" component={Personal} />
