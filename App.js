@@ -7,6 +7,7 @@ import Entradas from "./src/pantallas/Entradas/DetallesEntrada";
 import Salidas from "./src/pantallas/Salidas/Salidas";
 import Productos from "./src/pantallas/Productos/Productos";
 import Usuarios from "./src/pantallas/Usuarios/Usuarios";
+import Sucursales from "./src/pantallas/Sucursales/Sucursales";
 //Fin Importar pantallas
 
 //Inicio importar librerías
@@ -28,6 +29,7 @@ export default function App() {
           <Drawer.Screen name="Productos" component={Productos} />
           <Drawer.Screen name="Roles" component={Roles} />
           <Drawer.Screen name="Clientes" component={Clientes} />
+          <Drawer.Screen name="Sucursales" component={Sucursales} />
           <Drawer.Screen name="Personal" component={Personal} />
           <Drawer.Screen name="Usuarios" component={Usuarios} />
         </Drawer.Navigator>
