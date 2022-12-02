@@ -3,9 +3,12 @@ import Clientes from "./src/pantallas/Clientes/Clientes";
 import Roles from "./src/pantallas/Roles/Roles";
 import Inicio from "./src/pantallas/Inicio";
 import Personal from "./src/pantallas/Personal/Personal";
+import Entradas from "./src/pantallas/Entradas/DetallesEntrada";
+import Salidas from "./src/pantallas/Salidas/Salidas";
 import Entradas from "./src/pantallas/Entradas/Entradas";
 import Productos from "./src/pantallas/Productos/Productos";
 import Usuarios from "./src/pantallas/Usuarios/Usuarios";
+import Sucursales from "./src/pantallas/Sucursales/Sucursales";
 import Login from "./src/pantallas/Login";
 //Fin Importar pantallas
 import Navegacion from "./src/componentes/Navegacion";
@@ -24,9 +27,11 @@ export default function App() {
         <Drawer.Navigator>
           <Drawer.Screen name="Inicio" component={Inicio} />
           <Drawer.Screen name="Entradas" component={Entradas} />
+          <Drawer.Screen name="Salidas" component={Salidas} />
           <Drawer.Screen name="Productos" component={Productos} />
           <Drawer.Screen name="Roles" component={Roles} />
           <Drawer.Screen name="Clientes" component={Clientes} />
+          <Drawer.Screen name="Sucursales" component={Sucursales} />
           <Drawer.Screen name="Personal" component={Personal} />
           <Drawer.Screen name="Usuarios" component={Usuarios} />
         </Drawer.Navigator>
