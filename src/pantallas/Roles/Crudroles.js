@@ -6,14 +6,6 @@ export default function App() {
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
-        <Heading
-          mx="3"
-          alignItems="center"
-          flexDirection="row"
-          style={{ marginTop: 50 }}
-        >
-          AGREGAR ROL
-        </Heading>
         <Divider
           my="2"
           _light={{

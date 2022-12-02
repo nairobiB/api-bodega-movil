@@ -1,6 +1,6 @@
 //Inicio Importar pantallas
 import Clientes from "../pantallas/Stacks/ClientesStack";
-import Roles from "../pantallas/Roles/Roles";
+import Roles from "../pantallas/Stacks/RolesStack";
 import Inicio from "../pantallas/Inicio";
 import Personal from "../pantallas/Stacks/PersonalStack";
 import Entradas from "../pantallas/Entradas/Entradas";
