@@ -13,7 +13,7 @@ import { Ionicons, Entypo } from "@expo/vector-icons";
 import login from "../../assets/login.jpg";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "../componentes/Cargando";
-
+import { Alert } from "react-native";
 const Login = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
   const [contrasena, setContrasena] = useState(null);
@@ -52,6 +52,7 @@ const Login = ({ navigation }) => {
     console.log("Ir a PIN");
     navigation.navigate("Pin");
   };
+
   return (
     //Header
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>

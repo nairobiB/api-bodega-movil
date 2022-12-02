@@ -65,8 +65,7 @@ const UsuarioState = (props) => {
             await AsyncStorage.setItem("toke_almacenado", String(token));
             const u = JSON.stringify(usuario);
             await AsyncStorage.setItem("usuario_almacenado", u);
-            textoMensaje =
-              "Bienvenido " + usuario.nombre + " " + usuario.apellido;
+            textoMensaje = "Bienvenido";
           } else {
             textoMensaje = "";
             json.errores.forEach((element) => {

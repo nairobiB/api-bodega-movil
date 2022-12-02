@@ -2,7 +2,7 @@ import * as React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Login from "../pantallas/Login";
-import Inicio from "../pantallas/Inicio";
+import Hamburger from "./Hamburger";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "./Cargando";
 
@@ -21,7 +21,7 @@ const Pantallas = () => {
       >
         {sesionIniciada ? (
           <>
-            <Stack.Screen name="Inicio" component={Inicio} />
+            <Stack.Screen name="Hamburger" component={Hamburger} />
           </>
         ) : (
           <>
