@@ -27,7 +27,7 @@ const Pantallas = () => {
           </>
         ) : (
           <>
-            <Stack.Screen name="Login" component={Login} />  
+            <Stack.Screen name="Login" component={Login} />
           </>
         )}
       </Stack.Navigator>

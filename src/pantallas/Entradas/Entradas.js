@@ -1,6 +1,5 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, ImageBackground, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import {
   Icon,
   Input,
@@ -13,8 +12,13 @@ import {
 } from "native-base";
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
-export default function App() {
-  const navegacion = useNavigation();
+import { useNavigation } from "@react-navigation/native";
+
+export default function App({ navigation }) {
+  const irEntrada = () => {
+    console.log("Ir a Entrada");
+    navigation.navigate("Entrada");
+  };
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
@@ -29,7 +33,10 @@ export default function App() {
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
+        <Button style={Estilos.botonNuevo} onPress={irEntrada}>
+          {" "}
+          Agregar nuevo Registro
+        </Button>
       </View>
 
       <View style={Estilos.busqueda}>

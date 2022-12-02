@@ -12,7 +12,12 @@ import {
 } from "native-base";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
+import {useNavigation} from "@react-navigation/native"
+
+
 export default function App() {
+  const nav = useNavigation()
+
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
@@ -27,7 +32,9 @@ export default function App() {
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nuevo cliente</Button>
+        <Button style={Estilos.botonNuevo}
+        onPress={()=> nav.navigate("crud")}
+        > Agregar nuevo cliente</Button>
       </View>
 
       <View style={Estilos.busqueda}>
