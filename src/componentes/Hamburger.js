@@ -2,11 +2,11 @@
 import Clientes from "../pantallas/Stacks/ClientesStack";
 import Roles from "../pantallas/Roles/Roles";
 import Inicio from "../pantallas/Inicio";
-import Personal from "../pantallas/Personal/Personal";
+import Personal from "../pantallas/Stacks/PersonalStack";
 import Entradas from "../pantallas/Entradas/Entradas";
 import Salidas from "../pantallas/Salidas/Salidas";
 import Productos from "../pantallas/Stacks/ProductosStack";
-import Usuarios from "../pantallas/Usuarios/Usuarios";
+import Usuarios from "../pantallas/Stacks/UsuariosStack";
 import Sucursales from "../pantallas/Sucursales/Sucursales";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";

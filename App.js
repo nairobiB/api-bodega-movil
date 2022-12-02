@@ -19,7 +19,7 @@ export default function App() {
           <Drawer.Screen name="Personal" component={Personal} />
           <Drawer.Screen name="Usuarios" component={Usuarios} />
         </Drawer.Navigator>
-      </NavigationContainer> 
+      </NavigationContainer>
       <Login></Login>*/}
       <Navegacion></Navegacion>
     </NativeBaseProvider>

@@ -87,7 +87,7 @@ const PersonalCrud = () => {
             validacionNombre ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba el usuario correctamente
+                Escriba el usuario
                 </Text>
               </>
             ):
@@ -108,7 +108,7 @@ const PersonalCrud = () => {
             validacionContrasena ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba la contrasena correctamente
+                Escriba la contrasena
                 </Text>
               </>
             ):
@@ -129,7 +129,7 @@ const PersonalCrud = () => {
             validacionCorreo ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba el correo correctamente
+                Escriba el correo
                 </Text>
               </>
             ):

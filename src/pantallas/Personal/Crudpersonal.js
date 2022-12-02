@@ -107,7 +107,7 @@ const PersonalCrud = () => {
             validacionNombre ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba el nombre correctamente
+                Escriba el nombre
                 </Text>
               </>
             ):
@@ -128,7 +128,7 @@ const PersonalCrud = () => {
             validacionDireccion ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba la direccion correctamente
+                Escriba la direccion
                 </Text>
               </>
             ):
@@ -149,7 +149,7 @@ const PersonalCrud = () => {
             validacionCorreo ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba el correo correctamente
+                Escriba el correo
                 </Text>
               </>
             ):
@@ -170,7 +170,7 @@ const PersonalCrud = () => {
             validacionTelefono ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba el telefono correctamente
+                Escriba el telefono
                 </Text>
               </>
             ):
