@@ -31,6 +31,7 @@ const Estilos = StyleSheet.create({
     color: "#302a8a",
     fontSize: 30,
     fontWeight: "500",
+    textAlign: "center",
   },
   labelLogin: {
     fontSize: 20,

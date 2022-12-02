@@ -5,6 +5,8 @@ import Login from "../pantallas/Login";
 import Hamburger from "./Hamburger";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "./Cargando";
+import EnviarCorreo from "../pantallas/EnviarCorreo";
+import ActualizarClave from "../pantallas/ActualizarClave";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +27,7 @@ const Pantallas = () => {
           </>
         ) : (
           <>
-            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Login" component={Login} />  
           </>
         )}
       </Stack.Navigator>
