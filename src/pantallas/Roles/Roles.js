@@ -13,8 +13,10 @@ import {
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
 import { useNavigation } from "@react-navigation/native";
+
 export default function App() {
   const nav = useNavigation();
+
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.banner}>
@@ -23,7 +25,10 @@ export default function App() {
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crud")}>
+        <Button
+          style={Estilos.botonNuevo}
+          onPress={() => nav.navigate("crudroles")}
+        >
           Agregar nuevo rol
         </Button>
       </View>

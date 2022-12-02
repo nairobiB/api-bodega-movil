@@ -30,7 +30,7 @@ export default function App() {
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crud")}> 
+        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crud")}>
           Agregar nuevo cliente
         </Button>
       </View>

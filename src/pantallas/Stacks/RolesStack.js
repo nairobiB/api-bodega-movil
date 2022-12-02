@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Roles from "../Roles/Roles";
-import CrudRoles from "../Roles/Crudroles";
+import Crudroles from "../Roles/Crudroles";
 
 const Stack = createStackNavigator();
 export default function RolesStack() {
@@ -10,7 +10,7 @@ export default function RolesStack() {
       <Stack.Screen name="Roles" component={Roles} options={{ title: "" }} />
       <Stack.Screen
         name="crudroles"
-        component={CrudRoles}
+        component={Crudroles}
         options={{ title: "Nuevo" }}
       />
     </Stack.Navigator>
