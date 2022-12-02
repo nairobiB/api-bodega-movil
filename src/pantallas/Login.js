@@ -1,9 +1,57 @@
 import Estilos from "../componentes/Estilos";
-import { Text, ScrollView, ImageBackground, View } from "react-native";
-import { Icon, Input, Button } from "native-base";
+import {
+  Text,
+  ScrollView,
+  ImageBackground,
+  View,
+  TextInput,
+  Button,
+} from "react-native";
+import React, { useState, useEffect, useContext } from "react";
+import { Icon, Input } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import login from "../../assets/login.jpg";
-export default function App() {
+import UsuarioContext from "../contexto/UsuarioContext";
+import Cargando from "../componentes/Cargando";
+
+const Login = ({ navigation }) => {
+  const [usuario, setUsuario] = useState(null);
+  const [contrasena, setContrasena] = useState(null);
+  const [validarUsuario, setValidarUsuario] = useState(false);
+  const [validarContrasena, setValidarContrasena] = useState(false);
+  const { setLogin } = useContext(UsuarioContext);
+  const [espera, setEspera] = useState(false);
+  const titulo = "Iniciar Sesion";
+  useEffect(() => {
+    if (!usuario) {
+      setValidarUsuario(true);
+    } else if (usuario.length < 3) {
+      setValidarUsuario(true);
+    } else {
+      setValidarUsuario(false);
+    }
+    if (!contrasena) {
+      setValidarContrasena(true);
+    } else if (contrasena.length < 6) {
+      setValidarContrasena(true);
+    } else {
+      setValidarContrasena(false);
+    }
+  }, [usuario, contrasena]);
+  const iniciarSesion = async () => {
+    console.log(usuario);
+    if (!validarUsuario && !validarContrasena) {
+      setEspera(true);
+      await setLogin({ usuario: usuario, contrasena: contrasena });
+      setEspera(false);
+    } else {
+      Alert.alert(titulo, "Debe enviar los datos correctos");
+    }
+  };
+  const irpin = () => {
+    console.log("Ir a PIN");
+    navigation.navigate("Pin");
+  };
   return (
     //Header
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
@@ -25,43 +73,34 @@ export default function App() {
           <View style={{ marginTop: 25 }}>
             {/* Usuario */}
             <Text style={Estilos.labelLogin}>Usuario</Text>
-            <Input
+            <TextInput
               placeholder="Ingrese su usuario"
-              size="xl"
               style={{ marginTop: 5 }}
-              InputLeftElement={
-                <Icon
-                  as={<Ionicons name="person" />}
-                  size={5}
-                  ml="3"
-                  color="muted.400"
-                />
-              }
-            ></Input>
+              value={usuario}
+              onChangeText={setUsuario}
+            ></TextInput>
 
             {/* Contraseña */}
             <Text style={Estilos.labelLogin}>Contraseña</Text>
-            <Input
+            <TextInput
               placeholder="Ingrese su contraseña"
-              size="xl"
               style={{ marginTop: 5 }}
-              InputLeftElement={
-                <Icon
-                  as={<Entypo name="lock" />}
-                  size={5}
-                  ml="3"
-                  color="muted.400"
-                />
-              }
               secureTextEntry={true}
-            ></Input>
+              value={contrasena}
+              onChangeText={setContrasena}
+            ></TextInput>
           </View>
           {/* Boton login */}
           <View style={{ marginTop: 30 }}>
-            <Button style={Estilos.btnLogin}>Iniciar Sesión</Button>
+            <Button
+              style={Estilos.btnLogin}
+              title="Iniciar sesión"
+              onPress={iniciarSesion}
+            ></Button>
           </View>
         </View>
       </View>
     </ScrollView>
   );
-}
+};
+export default Login;
