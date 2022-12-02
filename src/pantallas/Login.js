@@ -14,6 +14,7 @@ import login from "../../assets/login.jpg";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "../componentes/Cargando";
 import { Alert } from "react-native";
+
 const Login = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
   const [contrasena, setContrasena] = useState(null);
@@ -38,6 +39,7 @@ const Login = ({ navigation }) => {
       setValidarContrasena(false);
     }
   }, [usuario, contrasena]);
+
   const iniciarSesion = async () => {
     console.log(usuario);
     if (!validarUsuario && !validarContrasena) {
@@ -48,6 +50,7 @@ const Login = ({ navigation }) => {
       Alert.alert(titulo, "Debe enviar los datos correctos");
     }
   };
+
   const irpin = () => {
     console.log("Ir a PIN");
     navigation.navigate("Pin");
@@ -97,6 +100,11 @@ const Login = ({ navigation }) => {
               style={Estilos.btnLogin}
               title="Iniciar sesión"
               onPress={iniciarSesion}
+            ></Button>
+            <Button
+              title="Recuperar Contraseña"
+              color={"#000"}
+              onPress={irpin}
             ></Button>
           </View>
         </View>
