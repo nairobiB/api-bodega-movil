@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import { Icon, Input } from "native-base";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import login from "../../assets/login.jpg";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "../componentes/Cargando";
@@ -63,7 +63,12 @@ const Login = ({ navigation }) => {
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="log-in" size={65} color={"white"} />
+          <Icon
+            as={MaterialCommunityIcons}
+            name="login"
+            size={65}
+            color={"white"}
+          />
           <Text style={Estilos.textoTitulo}>Inicio de Sesión</Text>
         </View>
       </ImageBackground>

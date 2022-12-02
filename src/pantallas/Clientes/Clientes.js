@@ -10,26 +10,29 @@ import {
   Heading,
   MaterialIcons,
 } from "native-base";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
-import {useNavigation} from "@react-navigation/native"
-
+import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
-  const nav = useNavigation()
+  const nav = useNavigation();
 
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="person" size={65} color={"white"} />
-          <Text style={Estilos.textoTitulo}>Clientes</Text>
+          <Icon
+            as={MaterialCommunityIcons}
+            name="account-group"
+            size={65}
+            color={"white"}
+          />
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}
-        onPress={()=> nav.navigate("crud")}
-        > Agregar nuevo cliente</Button>
+        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crud")}>
+          Agregar nuevo cliente
+        </Button>
       </View>
 
       <View style={Estilos.busqueda}>

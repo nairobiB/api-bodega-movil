@@ -1,5 +1,6 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, ImageBackground, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   Icon,
   Input,
@@ -10,29 +11,24 @@ import {
   Heading,
   MaterialIcons,
 } from "native-base";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
-import {useNavigation} from "@react-navigation/native"
-
-export default function App({navigation}) {
-    const irEntrada = () => {
-      console.log("Ir a Entrada");
-      navigation.navigate("Entrada");
-    };
+export default function App() {
+  const navegacion = useNavigation();
   return (
-    
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="log-in" size={65} color={"white"} />
-          <Text style={Estilos.textoTitulo}>Entradas</Text>
+          <Icon
+            as={FontAwesome}
+            name="shopping-cart"
+            size={65}
+            color={"white"}
+          />
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}
-        onPress={irEntrada}
-  
-        > Agregar nuevo Registro</Button>
+        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
       </View>
 
       <View style={Estilos.busqueda}>

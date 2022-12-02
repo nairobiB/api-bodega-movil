@@ -10,14 +10,14 @@ import {
   Heading,
   MaterialIcons,
 } from "native-base";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
 export default function App() {
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="person" size={65} color={"white"} />
+          <FontAwesome name="users" size={65} color="white" />
           <Text style={Estilos.textoTitulo}>Usuarios</Text>
         </View>
       </ImageBackground>

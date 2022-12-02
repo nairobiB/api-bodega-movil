@@ -1,8 +1,7 @@
-import ListaUsuarios from "../pantallas/ListaUsuarios";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../pantallas/Login";
 import Pin from "../pantallas/Pin";
-import NuevaContrasena from "../pantallas/NuevaContrasena";
+
 import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
