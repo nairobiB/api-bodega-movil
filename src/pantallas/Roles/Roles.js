@@ -12,20 +12,17 @@ import {
 } from "native-base";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
-import { useNavigation } from "@react-navigation/native";
 export default function App() {
-  const nav = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.banner}>
+      <ImageBackground source={login} style={Estilos.imagenLogin}>
         <View style={Estilos.firstView}>
           <Octicons name="people" size={65} color="white" />
+          <Text style={Estilos.textoTitulo}>Roles</Text>
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crud")}>
-          Agregar nuevo rol
-        </Button>
+        <Button style={Estilos.botonNuevo}> Agregar nuevo rol</Button>
       </View>
 
       <View style={Estilos.busqueda}>
