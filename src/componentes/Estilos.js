@@ -8,6 +8,9 @@ const Estilos = StyleSheet.create({
   imagenLogin: {
     height: Dimensions.get("window").height / 2.5,
   },
+  banner: {
+    height: Dimensions.get("window").height / 6,
+  },
   firstView: {
     flex: 1,
     justifyContent: "center",
@@ -53,8 +56,8 @@ const Estilos = StyleSheet.create({
   botonNuevo: {
     alignSelf: "center",
     backgroundColor: "green",
-
-    width: Dimensions.get("window").width / 1.5,
+    width: 250,
+    height: 50,
     borderRadius: 40,
   },
 
@@ -91,7 +94,7 @@ const Estilos = StyleSheet.create({
     borderRadius: 4,
     padding: 7,
     fontSize: 14,
-    marginBottom:2,
+    marginBottom: 2,
   },
   entradas_error: {
     borderWidth: 1,
@@ -99,12 +102,12 @@ const Estilos = StyleSheet.create({
     borderRadius: 4,
     padding: 7,
     fontSize: 14,
-    marginBottom:2,
+    marginBottom: 2,
   },
   etiqueta_error: {
     fontSize: 12,
     marginBottom: 1,
-    marginLeft:5,
+    marginLeft: 5,
     color: "red",
   },
   estados: {
