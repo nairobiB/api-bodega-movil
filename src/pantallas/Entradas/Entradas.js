@@ -1,6 +1,6 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, ImageBackground, View } from "react-native";
-import {useNavigation} from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native";
 import {
   Icon,
   Input,
@@ -11,24 +11,25 @@ import {
   Heading,
   MaterialIcons,
 } from "native-base";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
 export default function App() {
-    const navegacion= useNavigation()
+  const navegacion = useNavigation();
   return (
-    
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.imagenLogin}>
         <View style={Estilos.firstView}>
-          <Icon as={Ionicons} name="log-in" size={65} color={"white"} />
+          <Icon
+            as={FontAwesome}
+            name="shopping-cart"
+            size={65}
+            color={"white"}
+          />
           <Text style={Estilos.textoTitulo}>Entradas</Text>
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}
-        
-  
-        > Agregar nuevo Registro</Button>
+        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
       </View>
 
       <View style={Estilos.busqueda}>
