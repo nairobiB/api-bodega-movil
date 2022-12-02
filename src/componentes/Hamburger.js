@@ -1,11 +1,11 @@
 //Inicio Importar pantallas
-import Clientes from "../pantallas/Clientes/Clientes";
+import Clientes from "../pantallas/Stacks/ClientesStack";
 import Roles from "../pantallas/Roles/Roles";
 import Inicio from "../pantallas/Inicio";
 import Personal from "../pantallas/Personal/Personal";
 import Entradas from "../pantallas/Entradas/Entradas";
 import Salidas from "../pantallas/Salidas/Salidas";
-import Productos from "../pantallas/Productos/Productos";
+import Productos from "../pantallas/Stacks/ProductosStack";
 import Usuarios from "../pantallas/Usuarios/Usuarios";
 import Sucursales from "../pantallas/Sucursales/Sucursales";
 import { NavigationContainer } from "@react-navigation/native";

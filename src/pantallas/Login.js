@@ -14,8 +14,10 @@ import login from "../../assets/login.jpg";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "../componentes/Cargando";
 import { Alert } from "react-native";
+import {useNavigation} from "@react-navigation/native"
 
 const Login = ({ navigation }) => {
+  const nav = useNavigation()
   const [usuario, setUsuario] = useState(null);
   const [contrasena, setContrasena] = useState(null);
   const [validarUsuario, setValidarUsuario] = useState(false);

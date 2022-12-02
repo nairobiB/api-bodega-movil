@@ -5,6 +5,8 @@ import Login from "../pantallas/Login";
 import Hamburger from "./Hamburger";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "./Cargando";
+import Pin from "../pantallas/Pin";
+import Entrada from "../pantallas/Entradas/Crudentradas";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +28,8 @@ const Pantallas = () => {
         ) : (
           <>
             <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Pin" component={Pin} />
+            <Stack.Screen name="NuevaEntrada" component={Entrada} />
           </>
         )}
       </Stack.Navigator>

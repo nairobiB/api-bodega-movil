@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import Estilos from "../componentes/Estilos";
-import logg from "../../assets/login.jpeg";
+import logg from "../../assets/login.jpg";
 import UsuarioContext from "../contexto/UsuarioContext";
 import Cargando from "../componentes/Cargando";
 import Axios from "../componentes/Axios";
