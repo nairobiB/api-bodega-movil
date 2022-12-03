@@ -14,7 +14,7 @@ import {
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
 export default function App() {
-  const navegacion = useNavigation();
+  const nav = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.banner}>
@@ -28,7 +28,10 @@ export default function App() {
         </View>
       </ImageBackground>
       <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
+        <Button 
+        style={Estilos.botonNuevo}
+        onPress={() => nav.navigate("crudEntrada")}
+        > Agregar nuevo Registro</Button>
       </View>
 
       <View style={Estilos.busqueda}>
