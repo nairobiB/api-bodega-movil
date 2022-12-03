@@ -18,6 +18,7 @@ import {
   Switch,
 } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
+
 export default function App() {
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>

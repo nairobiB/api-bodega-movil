@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../pantallas/Login";
-import Pin from "../pantallas/Pin";
+import EnviarCorreo from "../pantallas/EnviarCorreo";
 
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -16,7 +16,7 @@ const LoginTab = () => {
       >
         <>
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Pin" component={Pin} />
+          <Stack.Screen name="EnviarCorreo" component={EnviarCorreo} />
           {/* <Stack.Screen name="NuevaContrasena" component={NuevaContrasena} /> */}
         </>
       </Stack.Navigator>

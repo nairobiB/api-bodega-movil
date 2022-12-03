@@ -7,7 +7,7 @@ import Entradas from "../pantallas/Entradas/Entradas";
 import Salidas from "../pantallas/Salidas/Salidas";
 import Productos from "../pantallas/Stacks/ProductosStack";
 import Usuarios from "../pantallas/Stacks/UsuariosStack";
-import Sucursales from "../pantallas/Sucursales/Sucursales";
+import Sucursales from "../pantallas/Stacks/SucursalesStack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 const Drawer = createDrawerNavigator();

@@ -55,7 +55,7 @@ const Login = ({ navigation }) => {
 
   const irpin = () => {
     console.log("Ir a PIN");
-    navigation.navigate("Pin");
+    navigation.navigate("EnviarCorreo");
   };
 
   return (
