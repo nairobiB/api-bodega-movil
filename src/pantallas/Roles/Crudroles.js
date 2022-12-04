@@ -1,7 +1,7 @@
 import Estilos from "../../componentes/Estilos";
-import { Text, ScrollView, View, Button, TextInput, Alert } from "react-native";
+import { Text, ScrollView, View, TextInput, Alert } from "react-native";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Switch } from "native-base";
+import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Agregar";
+  var textoMensaje = "";
   useEffect(() => {
     if (!nombreRol) {
       setValidarRol(true);
@@ -69,20 +70,45 @@ export default function App() {
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Nombre del rol</Text>
-            <TextInput
-              value={nombreRol}
-              onChangeText={setnombreRol}
-              placeholder="Ingrese el rol"
-            />
+            <View>
+              <TextInput
+                value={nombreRol}
+                onChangeText={setnombreRol}
+                placeholder="Ingrese el rol"
+                style={Estilos.entradasCrud}
+              />
+            </View>
           </View>
 
-          <View style={Estilos.contenedorBotones}>
-            <Button
+          <View style={Estilos.contenedorBotonesCrud}>
+            {/* <Button
               color={"#313087"}
               style={Estilos.botones}
               onPress={agregar}
               title="Guardar"
             />
+            <Button
+              color={"#313087"}
+              style={Estilos.botones}
+              onPress={agregar}
+              title="Cancelar"
+            /> */}
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              onPress={agregar}
+              colorScheme="darkBlue"
+            >
+              Guardar
+            </Button>
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              onPress={agregar}
+              colorScheme="muted"
+            >
+              Cancelar
+            </Button>
           </View>
         </View>
       </View>

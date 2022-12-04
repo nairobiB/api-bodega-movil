@@ -1,7 +1,9 @@
-import { View, Image, StyleSheet, Text, Button } from "react-native";
+import { View, Image, StyleSheet, Text } from "react-native";
 //import Checkbox from 'expo-checkbox';
+import { Button, Icon, Group } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
+import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 // const uriImagen = Image.resolveAssetSource(login).uri;
 //import { urlImagenesRoles } from '../configuracion/Urls';
@@ -30,8 +32,26 @@ const Roles = (props) => {
         <Text>{props.rol.nombreRol}</Text>
       </View>
       <View style={Estilos.contenedorB}>
-        <Button title="Editar" color={"darkblue"}></Button>
-        <Button title="Eliminar" color={"darkred"}></Button>
+        {/* <Button title="Editar" color={"#313087"}></Button>
+        <Button title="Eliminar" color={"#852834"}></Button> */}
+        <Button.Group
+          isAttached
+          mx={{
+            base: "auto",
+            md: 0,
+          }}
+          size="50px"
+        >
+          <Button
+            startIcon={<Icon as={Feather} name="edit" size={6}></Icon>}
+            colorScheme="darkBlue"
+          ></Button>
+          <Button
+            startIcon={<Icon as={MaterialIcons} name="delete" size={7}></Icon>}
+            variant="solid"
+            colorScheme="red"
+          ></Button>
+        </Button.Group>
       </View>
     </View>
   );

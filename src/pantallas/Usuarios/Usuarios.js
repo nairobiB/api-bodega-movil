@@ -3,10 +3,10 @@ import { Text, ScrollView, ImageBackground, View } from "react-native";
 import {
   Icon,
   Input,
-  Button,
   VStack,
   Divider,
   Box,
+  Button,
   Heading,
   MaterialIcons,
 } from "native-base";
@@ -18,16 +18,22 @@ export default function App() {
   const nav = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <FontAwesome name="users" size={65} color="white" />
-          <Text style={Estilos.textoTitulo}>Usuarios</Text>
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crudusuarios")}> Agregar nuevo usuarios</Button>
-      </View>
 
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button
+            onPress={() => nav.navigate("crudusuarios")}
+            colorScheme="darkBlue"
+          >
+            Agregar nuevo Registro
+          </Button>
+        </View>
+      </View>
       <View style={Estilos.busqueda}>
         <VStack
           my="4"

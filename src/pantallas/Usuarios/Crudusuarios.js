@@ -19,53 +19,44 @@ import {
   Switch,
 } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const PersonalCrud = () => {
-
-  const [nomUsuario, setNombreUsuario]=useState(null);
-  const [contrasena, setContrasena]=useState(null)
-  const [correo, setCorreo]=useState(null);
-  const [validacionNombre, setValidacionNombre]=useState(false);
-  const [validacionContrasena, setValidacionContrasena]=useState(false);
-  const [validacionCorreo, setValidacionCorreo]=useState(false);
-  useEffect(()=>{
+  const [nomUsuario, setNombreUsuario] = useState(null);
+  const [contrasena, setContrasena] = useState(null);
+  const [correo, setCorreo] = useState(null);
+  const [validacionNombre, setValidacionNombre] = useState(false);
+  const [validacionContrasena, setValidacionContrasena] = useState(false);
+  const [validacionCorreo, setValidacionCorreo] = useState(false);
+  useEffect(() => {
     //console.log('Se ejecuto');
     //console.log(usuario);
-    if(!nomUsuario){
+    if (!nomUsuario) {
       setValidacionNombre(true);
-    }else if(nomUsuario.length<3){
+    } else if (nomUsuario.length < 3) {
       setValidacionNombre(true);
-    }else{
+    } else {
       setValidacionNombre(false);
     }
-    if(!contrasena){
+    if (!contrasena) {
       setValidacionContrasena(true);
-    }else if(contrasena.length<10){
+    } else if (contrasena.length < 10) {
       setValidacionContrasena(true);
-    }else{
+    } else {
       setValidacionContrasena(false);
     }
-    if(!correo){
+    if (!correo) {
       setValidacionCorreo(true);
-    }else if(correo.length<15){
+    } else if (correo.length < 15) {
       setValidacionCorreo(true);
-    }else{
+    } else {
       setValidacionCorreo(false);
     }
-  },[nomUsuario,contrasena,correo]);
+  }, [nomUsuario, contrasena, correo]);
 
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
-        <Heading
-          mx="3"
-          alignItems="center"
-          flexDirection="row"
-          style={{ marginTop: 50 }}
-        >
-          AGREGAR USUARIO
-        </Heading>
         <Divider
           my="2"
           _light={{
@@ -79,66 +70,56 @@ const PersonalCrud = () => {
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Usuario</Text>
-            <TextInput style={validacionNombre?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese el correo o nombre de usuario'
-            onChangeText={setNombreUsuario}>
-            </TextInput>
-            {
-            validacionNombre ? (
+            <TextInput
+              style={
+                validacionNombre ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese el correo o nombre de usuario"
+              onChangeText={setNombreUsuario}
+            ></TextInput>
+            {validacionNombre ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba el usuario
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba el usuario</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Contraseña</Text>
-            <TextInput style={validacionContrasena?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese la Contraseña'
-            onChangeText={setContrasena}>
-            </TextInput>
-            {
-            validacionContrasena ? (
+            <TextInput
+              style={
+                validacionContrasena ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese la Contraseña"
+              onChangeText={setContrasena}
+            ></TextInput>
+            {validacionContrasena ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba la contrasena
+                  Escriba la contrasena
                 </Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Correo</Text>
-            <TextInput style={validacionCorreo?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese el correo'
-            onChangeText={setCorreo}>
-            </TextInput>
-            {
-            validacionCorreo ? (
+            <TextInput
+              style={
+                validacionCorreo ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese el correo"
+              onChangeText={setCorreo}
+            ></TextInput>
+            {validacionCorreo ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba el correo
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba el correo</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Imagen</Text>

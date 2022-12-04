@@ -1,79 +1,6 @@
-// import Estilos from "../../componentes/Estilos";
-// import { Text, ScrollView, ImageBackground, View } from "react-native";
-// import {
-//   Icon,
-//   Input,
-//   Button,
-//   VStack,
-//   Divider,
-//   Box,
-//   Heading,
-//   MaterialIcons,
-// } from "native-base";
-// import { Ionicons, Octicons } from "@expo/vector-icons";
-// import login from "../../../assets/login.jpg";
-// import { useNavigation } from "@react-navigation/native";
-
-// export default function App() {
-//   const nav = useNavigation();
-
-//   return (
-//     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-//       <ImageBackground source={login} style={Estilos.banner}>
-//         <View style={Estilos.firstView}>
-//           <Octicons name="people" size={65} color="white" />
-//         </View>
-//       </ImageBackground>
-//       <View style={{ marginTop: 30 }}>
-//         <Button
-//           style={Estilos.botonNuevo}
-//           onPress={() => nav.navigate("crudroles")}
-//         >
-//           Agregar nuevo rol
-//         </Button>
-//       </View>
-
-//       <View style={Estilos.busqueda}>
-//         <VStack
-//           my="4"
-//           space={5}
-//           w="100%"
-//           maxW="300px"
-//           divider={
-//             <Box px="2">
-//               <Divider />
-//             </Box>
-//           }
-//         >
-//           <VStack w="100%" space={5} alignSelf="center">
-//             <Heading fontSize="lg">Buscar roles</Heading>
-//             <Input
-//               placeholder="Search"
-//               variant="filled"
-//               width="100%"
-//               borderRadius="10"
-//               py="1"
-//               size={"lg"}
-//               px="2"
-//               InputLeftElement={
-//                 <Icon
-//                   ml="2"
-//                   size="4"
-//                   color="gray.400"
-//                   as={<Ionicons name="ios-search" />}
-//                 />
-//               }
-//             />
-//           </VStack>
-//         </VStack>
-//       </View>
-//     </ScrollView>
-//   );
-// }
 import {
   Text,
   View,
-  Button,
   ImageBackground,
   TextInput,
   Alert,
@@ -86,7 +13,7 @@ import UsuarioContext from "../../contexto/UsuarioContext";
 import Cargando from "../../componentes/Cargando";
 import Rol from "../../componentes/Roles";
 import Axios from "../../componentes/Axios";
-import { Heading } from "native-base";
+import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 const Roles = ({ navigation }) => {
@@ -178,13 +105,15 @@ const Roles = ({ navigation }) => {
           <Octicons name="people" size={65} color="white" />
         </View>
       </ImageBackground>
-      <View style={Estilos.contenedorBotonesAgregar}>
-        <Button
-          style={Estilos.botonNuevo}
-          color={"green"}
-          onPress={() => nav.navigate("crudroles")}
-          title="Agregar nuevo Registro"
-        ></Button>
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button
+            onPress={() => nav.navigate("crudroles")}
+            colorScheme="darkBlue"
+          >
+            Agregar nuevo Registro
+          </Button>
+        </View>
       </View>
 
       <View style={Estilos.contenedorContenido}>
@@ -216,9 +145,11 @@ const Roles = ({ navigation }) => {
               <View style={Estilos.botones}>
                 <Button
                   title="Ver Todos"
-                  color={"#313087"}
                   onPress={BuscarRolesTodos}
-                ></Button>
+                  colorScheme="trueGray"
+                >
+                  Ver Todos
+                </Button>
               </View>
             </View>
             <View style={Estilos.contenedorControles}>

@@ -58,11 +58,6 @@ const Estilos = StyleSheet.create({
     alignItems: "center",
     marginTop: 0,
   },
-  botonNuevo: {
-    alignSelf: "center",
-    width: 250,
-    height: 50,
-  },
 
   principalView: {
     flex: 1,
@@ -99,6 +94,14 @@ const Estilos = StyleSheet.create({
     fontSize: 14,
     marginBottom: 2,
   },
+  entradasCrud: {
+    borderWidth: 1,
+    borderColor: "#808080",
+    borderRadius: 4,
+    padding: 7,
+    fontSize: 18,
+    marginBottom: 2,
+  },
   entradas_error: {
     borderWidth: 1,
     borderColor: "red",
@@ -125,16 +128,33 @@ const Estilos = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  contenedorBotonesCrud: {
+    flexDirection: "row",
+  },
   contenedorBotonesAgregar: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 10,
   },
   botones: {
     flex: 1,
     alignItems: "stretch",
     marginTop: 10,
     marginBottom: 10,
+  },
+  botonescrud: {
+    flex: 1,
+    alignItems: "stretch",
+    margin: 10,
+  },
+
+  botonNuevo: {
+    padding: 10,
+    flex: 1,
+    alignItems: "stretch",
+    marginTop: 10,
     marginLeft: 10,
     marginRight: 10,
   },
@@ -173,12 +193,16 @@ const Estilos = StyleSheet.create({
   },
 
   contenedorB: {
-    alignItems: "stretch",
+    alignItems: "center",
     justifyContent: "space-evenly",
     borderColor: "black",
     backgroundColor: "#ffffff",
-    flexDirection: "column",
+    flexDirection: "row",
     flex: 1,
+    // flexDirection: "column",
+    // justifyContent: "space-evenly",
+    // marginTop: 5,
+    // marginBottom: 5,
   },
 });
 

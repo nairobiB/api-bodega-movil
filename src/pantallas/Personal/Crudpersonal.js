@@ -19,73 +19,64 @@ import {
   Switch,
 } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const PersonalCrud = () => {
-
-  const [nomcompleto, setNombre]=useState(null);
-  const [direccion, setDireccion]=useState(null)
-  const [correo, setCorreo]=useState(null);
-  const [telefono, setTelefono]=useState(null);
-  const [fechaNac, setFechaNac]=useState(null);
-  const [validacionNombre, setValidacionNombre]=useState(false);
-  const [validacionDireccion, setValidacionDireccion]=useState(false);
-  const [validacionCorreo, setValidacionCorreo]=useState(false);
-  const [validacionTelefono, setValidacionTelefono]=useState(false);
-  const [validacionFechaNac, setValidacionFechaNac]=useState(false);
-  useEffect(()=>{
+  const [nomcompleto, setNombre] = useState(null);
+  const [direccion, setDireccion] = useState(null);
+  const [correo, setCorreo] = useState(null);
+  const [telefono, setTelefono] = useState(null);
+  const [fechaNac, setFechaNac] = useState(null);
+  const [validacionNombre, setValidacionNombre] = useState(false);
+  const [validacionDireccion, setValidacionDireccion] = useState(false);
+  const [validacionCorreo, setValidacionCorreo] = useState(false);
+  const [validacionTelefono, setValidacionTelefono] = useState(false);
+  const [validacionFechaNac, setValidacionFechaNac] = useState(false);
+  useEffect(() => {
     //console.log('Se ejecuto');
     //console.log(usuario);
-    if(!nomcompleto){
+    if (!nomcompleto) {
       setValidacionNombre(true);
-    }else if(nomcompleto.length<3){
+    } else if (nomcompleto.length < 3) {
       setValidacionNombre(true);
-    }else{
+    } else {
       setValidacionNombre(false);
     }
 
-    if(!direccion){
+    if (!direccion) {
       setValidacionDireccion(true);
-    }else if(direccion.length<10){
+    } else if (direccion.length < 10) {
       setValidacionDireccion(true);
-    }else{
+    } else {
       setValidacionDireccion(false);
     }
-    if(!correo){
+    if (!correo) {
       setValidacionCorreo(true);
-    }else if(correo.length<15){
+    } else if (correo.length < 15) {
       setValidacionCorreo(true);
-    }else{
+    } else {
       setValidacionCorreo(false);
     }
 
-    if(!telefono){
+    if (!telefono) {
       setValidacionTelefono(true);
-    }else if(telefono.length<10){
+    } else if (telefono.length < 10) {
       setValidacionTelefono(true);
-    }else{
+    } else {
       setValidacionTelefono(false);
     }
-    if(!fechaNac){
+    if (!fechaNac) {
       setValidacionFechaNac(true);
-    }else if(fechaNac.length<10){
+    } else if (fechaNac.length < 10) {
       setValidacionFechaNac(true);
-    }else{
+    } else {
       setValidacionFechaNac(false);
     }
-  },[nomcompleto,direccion,correo,telefono,fechaNac]);
+  }, [nomcompleto, direccion, correo, telefono, fechaNac]);
 
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
-        <Heading
-          mx="3"
-          alignItems="center"
-          flexDirection="row"
-          style={{ marginTop: 50 }}
-        >
-          AGREGAR EMPLEADO
-        </Heading>
         <Divider
           my="2"
           _light={{
@@ -99,108 +90,90 @@ const PersonalCrud = () => {
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Nombre completo</Text>
-            <TextInput style={validacionNombre?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese el correo o nombre de usuario'
-            onChangeText={setNombre}>
-            </TextInput>
-            {
-            validacionNombre ? (
+            <TextInput
+              style={
+                validacionNombre ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese el correo o nombre de usuario"
+              onChangeText={setNombre}
+            ></TextInput>
+            {validacionNombre ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba el nombre
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba el nombre</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Dirección</Text>
-            <TextInput style={validacionDireccion?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese la direccion'
-            onChangeText={setDireccion}>
-            </TextInput>
-            {
-            validacionDireccion ? (
+            <TextInput
+              style={
+                validacionDireccion ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese la direccion"
+              onChangeText={setDireccion}
+            ></TextInput>
+            {validacionDireccion ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba la direccion
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba la direccion</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Correo</Text>
-            <TextInput style={validacionCorreo?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese el correo'
-            onChangeText={setCorreo}>
-            </TextInput>
-            {
-            validacionCorreo ? (
+            <TextInput
+              style={
+                validacionCorreo ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese el correo"
+              onChangeText={setCorreo}
+            ></TextInput>
+            {validacionCorreo ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba el correo
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba el correo</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Telefono</Text>
-            <TextInput style={validacionTelefono?Estilos.entradas_error:Estilos.entradas}
-            placeholder='Ingrese numero de telefono'
-            onChangeText={setTelefono}>
-            </TextInput>
-            {
-            validacionTelefono ? (
+            <TextInput
+              style={
+                validacionTelefono ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="Ingrese numero de telefono"
+              onChangeText={setTelefono}
+            ></TextInput>
+            {validacionTelefono ? (
               <>
-                <Text style={Estilos.etiqueta_error}>
-                Escriba el telefono
-                </Text>
+                <Text style={Estilos.etiqueta_error}>Escriba el telefono</Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Fecha de nacimiento</Text>
-            <TextInput style={validacionFechaNac?Estilos.entradas_error:Estilos.entradas}
-            placeholder='YYYY-MM-DD'
-            onChangeText={setFechaNac}>
-            </TextInput>
-            {
-            validacionFechaNac ? (
+            <TextInput
+              style={
+                validacionFechaNac ? Estilos.entradas_error : Estilos.entradas
+              }
+              placeholder="YYYY-MM-DD"
+              onChangeText={setFechaNac}
+            ></TextInput>
+            {validacionFechaNac ? (
               <>
                 <Text style={Estilos.etiqueta_error}>
-                Escriba la fecha de nacimiento
+                  Escriba la fecha de nacimiento
                 </Text>
               </>
-            ):
-            (
-              <>
-
-              </>
-            )
-          }
+            ) : (
+              <></>
+            )}
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Imagen</Text>

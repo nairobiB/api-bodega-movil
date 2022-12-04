@@ -1,14 +1,14 @@
 import Estilos from "../../componentes/Estilos";
-import { Text, ScrollView, ImageBackground, View } from "react-native";
+import { Text, View, ImageBackground } from "react-native";
 import {
   Icon,
   Input,
-  Button,
   VStack,
   Divider,
   Box,
   Heading,
   MaterialIcons,
+  Button,
 } from "native-base";
 import { Ionicons, Fontisto } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
@@ -18,16 +18,22 @@ export default function App() {
   const nav = useNavigation();
 
   return (
-    <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+    <View style={Estilos.container} showsVerticalScrollIndicator={false}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <Fontisto name="persons" size={65} color="white" />
-          <Text style={Estilos.textoTitulo}>Empleados</Text>
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo} onPress={() => nav.navigate("crudpersonal")}>
-        Agregar nuevo empleado</Button>
+
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button
+            onPress={() => nav.navigate("crudpersonal")}
+            colorScheme="darkBlue"
+          >
+            Agregar nuevo Registro
+          </Button>
+        </View>
       </View>
 
       <View style={Estilos.busqueda}>
@@ -64,6 +70,6 @@ export default function App() {
           </VStack>
         </VStack>
       </View>
-    </ScrollView>
+    </View>
   );
 }

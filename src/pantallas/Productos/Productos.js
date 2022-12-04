@@ -12,22 +12,21 @@ import {
 } from "native-base";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
-import {useNavigation} from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
-  const nav = useNavigation()
+  const nav = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <FontAwesome5 name="boxes" size={65} color="white" />
-          <Text style={Estilos.textoTitulo}>Productos</Text>
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}
-        onPress={()=> nav.navigate("crud")}
-        > Agregar nuevo producto</Button>
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button colorScheme="darkBlue">Agregar nuevo Registro</Button>
+        </View>
       </View>
 
       <View style={Estilos.busqueda}>

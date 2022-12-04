@@ -16,16 +16,16 @@ export default function App() {
   const navegacion = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <MaterialIcons name="point-of-sale" size={65} color="white" />
-          <Text style={Estilos.textoTitulo}>Salidas</Text>
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button colorScheme="darkBlue">Agregar nuevo Registro</Button>
+        </View>
       </View>
-
       <View style={Estilos.busqueda}>
         <VStack
           my="4"
