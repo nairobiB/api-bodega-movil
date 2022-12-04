@@ -1,10 +1,5 @@
 import Estilos from "../../componentes/Estilos";
-import {
-  Text,
-  ScrollView,
-  ImageBackground,
-  View
-} from "react-native";
+import { Text, ScrollView, ImageBackground, View } from "react-native";
 import {
   Icon,
   Input,
@@ -21,14 +16,6 @@ export default function App() {
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
-        <Heading
-          mx="3"
-          alignItems="center"
-          flexDirection="row"
-          style={{ marginTop: 50 }}
-        >
-          AGREGAR REGISTRO
-        </Heading>
         <Divider
           my="2"
           _light={{
@@ -50,11 +37,7 @@ export default function App() {
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Fecha de ingreso</Text>
-            <Input
-              size={"lg"}
-              variant="outline"
-              placeholder="YYYY-MM-DD"
-            />
+            <Input size={"lg"} variant="outline" placeholder="YYYY-MM-DD" />
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Sucursal</Text>
@@ -66,39 +49,39 @@ export default function App() {
           </View>
 
           <View style={Estilos.busqueda}>
-        <VStack
-          my="4"
-          space={5}
-          w="100%"
-          maxW="300px"
-          divider={
-            <Box px="2">
-              <Divider />
-            </Box>
-          }
-        >
-          <VStack w="100%" space={5} alignSelf="center">
-            <Heading fontSize="lg">Agregar producto</Heading>
-            <Input
-              placeholder="Search"
-              variant="filled"
-              width="100%"
-              borderRadius="10"
-              py="1"
-              size={"lg"}
-              px="2"
-              InputLeftElement={
-                <Icon
-                  ml="2"
-                  size="4"
-                  color="gray.400"
-                  as={<Ionicons name="ios-search" />}
-                />
+            <VStack
+              my="4"
+              space={5}
+              w="100%"
+              maxW="300px"
+              divider={
+                <Box px="2">
+                  <Divider />
+                </Box>
               }
-            />
-          </VStack>
-        </VStack>
-      </View>
+            >
+              <VStack w="100%" space={5} alignSelf="center">
+                <Heading fontSize="lg">Agregar producto</Heading>
+                <Input
+                  placeholder="Search"
+                  variant="filled"
+                  width="100%"
+                  borderRadius="10"
+                  py="1"
+                  size={"lg"}
+                  px="2"
+                  InputLeftElement={
+                    <Icon
+                      ml="2"
+                      size="4"
+                      color="gray.400"
+                      as={<Ionicons name="ios-search" />}
+                    />
+                  }
+                />
+              </VStack>
+            </VStack>
+          </View>
 
           <View style={Estilos.contenedorBotones}>
             <Button style={Estilos.botones} color={"red"}>
@@ -113,4 +96,3 @@ export default function App() {
     </ScrollView>
   );
 }
-

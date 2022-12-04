@@ -12,19 +12,29 @@ import {
 } from "native-base";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
+import { useNavigation } from "@react-navigation/native";
+
 export default function App() {
+  const nav = useNavigation();
+
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={login} style={Estilos.imagenLogin}>
+      <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <MaterialCommunityIcons name="store-marker" size={65} color="white" />
-          <Text style={Estilos.textoTitulo}>Sucursales</Text>
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nueva sucursal</Button>
-      </View>
 
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button
+            onPress={() => nav.navigate("crudsucursales")}
+            colorScheme="darkBlue"
+          >
+            Agregar nuevo Registro
+          </Button>
+        </View>
+      </View>
       <View style={Estilos.busqueda}>
         <VStack
           my="4"
