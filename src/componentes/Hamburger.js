@@ -3,7 +3,7 @@ import Clientes from "../pantallas/Stacks/ClientesStack";
 import Roles from "../pantallas/Stacks/RolesStack";
 import Inicio from "../pantallas/Inicio";
 import Personal from "../pantallas/Stacks/PersonalStack";
-import Entradas from "../pantallas/Entradas/Entradas";
+import Entradas from "../pantallas/Stacks/EntradaStack";
 import Salidas from "../pantallas/Salidas/Salidas";
 import Productos from "../pantallas/Stacks/ProductosStack";
 import Usuarios from "../pantallas/Stacks/UsuariosStack";
