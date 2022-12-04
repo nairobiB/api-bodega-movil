@@ -15,8 +15,10 @@ import { Icon, Input } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import Axios from "../componentes/Axios";
 import Cargando from "../componentes/Cargando";
+import { useNavigation } from "@react-navigation/native";
 
 const EnviarCorreo = () => {
+  const nav = useNavigation();
   const [correo, setCorreo] = useState(null);
   const [validarCorreo, setValidarCorreo] = useState(false);
   const [espera, setEspera] = useState(false);
@@ -44,6 +46,7 @@ const EnviarCorreo = () => {
         })
           .then(async (data) => {
             const json = data.data;
+            console.log(data);
             if (json.errores.length == 0) {
               textoMensaje = json.data.msj;
             } else {
@@ -64,14 +67,14 @@ const EnviarCorreo = () => {
       setEspera(false);
       Alert.alert(titulo, textoMensaje);
       if (textoMensaje == "Correo Enviado") {
-        navigation.navigate("NuevaContrasena", { correo: correo });
+        nav.navigate("ActualizarClave", { correo: correo });
       }
     } else {
       Alert.alert(titulo, "Debe enviar los datos correctos");
     }
   };
-
     return (
+
       //Header
       <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
         <ImageBackground source={login} style={Estilos.imagenLogin}>
@@ -94,8 +97,10 @@ const EnviarCorreo = () => {
               <Text style={Estilos.labelLogin}>Correo</Text>
               <TextInput
                 placeholder="Ingrese su correo de usuario"
-                style={{ marginTop: 5 }}
-                
+                // style={{ marginTop: 5 }}
+                style={validarCorreo ? Estilos.entradas_error : Estilos.entradas}
+                value={correo}
+                onChangeText={setCorreo}
               ></TextInput>
 
             </View>
@@ -104,6 +109,7 @@ const EnviarCorreo = () => {
               <Button
                 style={Estilos.btnLogin}
                 title="Enviar"
+                onPress={enviarPin}
                 
               ></Button>
             </View>
