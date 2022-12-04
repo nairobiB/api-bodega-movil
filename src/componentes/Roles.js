@@ -29,9 +29,9 @@ const Roles = (props) => {
         <Text>ID: {props.rol.id}</Text>
         <Text>{props.rol.nombreRol}</Text>
       </View>
-      <View style={Estilos.botonsito}>
-        <Button title="Editar"></Button>
-        <Button title="Eliminar"></Button>
+      <View style={Estilos.contenedorB}>
+        <Button title="Editar" color={"darkblue"}></Button>
+        <Button title="Eliminar" color={"darkred"}></Button>
       </View>
     </View>
   );

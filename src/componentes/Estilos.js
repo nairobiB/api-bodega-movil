@@ -171,9 +171,14 @@ const Estilos = StyleSheet.create({
     flexDirection: "row",
     margin: 5,
   },
-  botonsito: {
+
+  contenedorB: {
     alignItems: "stretch",
-    justifyContent: "flex-end",
+    justifyContent: "space-evenly",
+    borderColor: "black",
+    backgroundColor: "#ffffff",
+    flexDirection: "column",
+    flex: 1,
   },
 });
 
