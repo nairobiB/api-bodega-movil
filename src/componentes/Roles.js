@@ -3,6 +3,8 @@ import { View, Image, StyleSheet, Text, Button } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import Estilos from "./Estilos";
+import { Feather } from '@expo/vector-icons'; 
+import { Icon } from "native-base";
 // const uriImagen = Image.resolveAssetSource(login).uri;
 //import { urlImagenesRoles } from '../configuracion/Urls';
 const Roles = (props) => {
@@ -23,16 +25,20 @@ const Roles = (props) => {
   //     return imagen;
   // }
   return (
-    <View style={Estilos.contenedorTipo}>
-      <Image style={Estilos.imagen} source={login} />
-      <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.rol.id}</Text>
-        <Text>{props.rol.nombreRol}</Text>
+    <View style={Estilos.contenedorcomponente}>
+      <View style={Estilos.contenedorTipo}>
+        <Image style={Estilos.imagen} source={login} />
+        <View style={Estilos.contenedorTexto}>
+          <Text>ID: {props.rol.id}</Text>
+          <Text>{props.rol.nombreRol}</Text>
+        </View>
       </View>
       <View style={Estilos.botonsito}>
-        <Button title="Editar"></Button>
-        <Button title="Eliminar"></Button>
-      </View>
+          <Button title="Editar"
+          style={Estilos.trubutton}>
+          </Button>
+          <Button title="Eliminar"></Button>
+        </View>
     </View>
   );
 };

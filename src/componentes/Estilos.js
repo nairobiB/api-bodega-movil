@@ -172,9 +172,23 @@ const Estilos = StyleSheet.create({
     margin: 5,
   },
   botonsito: {
-    alignItems: "stretch",
-    justifyContent: "flex-end",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    marginTop: 5,
+    marginBottom: 5,
+    backgroundColor: "#000",
   },
+
+  trubutton:{
+    margin: 5
+  },
+
+  contenedorcomponente: {
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "black",
+    marginBottom: 10
+  }
 });
 
 export default Estilos;
