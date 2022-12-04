@@ -5,7 +5,6 @@ import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
-
 // const uriImagen = Image.resolveAssetSource(login).uri;
 //import { urlImagenesRoles } from '../configuracion/Urls';
 const Roles = (props) => {
@@ -26,13 +25,11 @@ const Roles = (props) => {
   //     return imagen;
   // }
   return (
-    <View style={Estilos.contenedorcomponente}>
-      <View style={Estilos.contenedorTipo}>
-        <Image style={Estilos.imagen} source={login} />
-        <View style={Estilos.contenedorTexto}>
-          <Text>ID: {props.rol.id}</Text>
-          <Text>{props.rol.nombreRol}</Text>
-        </View>
+    <View style={Estilos.contenedorTipo}>
+      <Image style={Estilos.imagen} source={login} />
+      <View style={Estilos.contenedorTexto}>
+        <Text>ID: {props.rol.id}</Text>
+        <Text>{props.rol.nombreRol}</Text>
       </View>
       <View style={Estilos.contenedorB}>
         {/* <Button title="Editar" color={"#313087"}></Button>

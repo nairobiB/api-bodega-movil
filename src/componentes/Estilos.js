@@ -204,13 +204,6 @@ const Estilos = StyleSheet.create({
     // marginTop: 5,
     // marginBottom: 5,
   },
-
-  contenedorcomponente: {
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "black",
-    marginBottom: 10,
-  },
 });
 
 export default Estilos;
