@@ -1,6 +1,7 @@
 import { Center } from "native-base";
 import { Dimensions, StyleSheet } from "react-native";
 const Estilos = StyleSheet.create({
+  //ESTILO DE PANTALLAS
   container: {
     flex: 1,
     backgroundColor: "#ffffff",
@@ -42,6 +43,10 @@ const Estilos = StyleSheet.create({
     marginTop: 15,
     color: "#6c757d",
   },
+  etiquetas: {
+    fontSize: 20,
+    marginBottom: 5,
+  },
   btnLogin: {
     alignSelf: "center",
     backgroundColor: "#302a8a",
@@ -55,10 +60,8 @@ const Estilos = StyleSheet.create({
   },
   botonNuevo: {
     alignSelf: "center",
-    backgroundColor: "green",
     width: 250,
     height: 50,
-    borderRadius: 40,
   },
 
   principalView: {
@@ -122,6 +125,11 @@ const Estilos = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  contenedorBotonesAgregar: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginTop: 30,
+  },
   botones: {
     flex: 1,
     alignItems: "stretch",
@@ -129,6 +137,43 @@ const Estilos = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
+  },
+
+  //ESTILO COMPONENTES
+  imagen: {
+    width: 100,
+    height: 100,
+    resizeMode: "contain",
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 90,
+  },
+  contenedorTipo: {
+    alignItems: "stretch",
+    justifyContent: "flex-start",
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "black",
+    margin: 10,
+    padding: 10,
+    backgroundColor: "#ffffff",
+    flexDirection: "row",
+  },
+  contenedorTexto: {
+    justifyContent: "center",
+    alignContent: "space-around",
+    padding: 10,
+    flexDirection: "column",
+  },
+  contenedorActivo: {
+    alignItems: "stretch",
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    margin: 5,
+  },
+  botonsito: {
+    alignItems: "stretch",
+    justifyContent: "flex-end",
   },
 });
 
