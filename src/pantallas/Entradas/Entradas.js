@@ -27,8 +27,10 @@ export default function App() {
           />
         </View>
       </ImageBackground>
-      <View style={{ marginTop: 30 }}>
-        <Button style={Estilos.botonNuevo}> Agregar nuevo Registro</Button>
+      <View style={Estilos.contenedorBotones}>
+        <View style={Estilos.botonNuevo}>
+          <Button colorScheme="darkBlue">Agregar nuevo Registro</Button>
+        </View>
       </View>
 
       <View style={Estilos.busqueda}>
