@@ -27,9 +27,9 @@ const Productos = (props) => {
   };
   return (
     <View style={Estilos.contenedorTipo}>
-      <Image style={Estilos.imagen} source={{uri:imagen}} />
+      <Image style={Estilos.imagen} source={{ uri: imagen }} />
       <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.usuario.id}</Text>
+        <Text>ID: {props.producto.id}</Text>
         <Text>Producto: {props.producto.nombreProducto}</Text>
         <Text>Precio: {props.producto.precioVenta}</Text>
       </View>

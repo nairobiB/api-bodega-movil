@@ -12,7 +12,7 @@ import login from "../../../assets/login.jpg";
 import UsuarioContext from "../../contexto/UsuarioContext";
 import Cargando from "../../componentes/Cargando";
 import Producto from "../../componentes/Productos";
-import Axios from "../../componentes/Axios"; 
+import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
@@ -46,7 +46,9 @@ const Productos = ({ navigation }) => {
       var textoMensaje = "";
       setEspera(true);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.get("/productos/buscarnombreProducto?nombreProducto=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
+      await Axios.get(
+        "/productos/buscarnombreProducto?nombreProducto=" + Filtro + "%"
+      ) //BUSCA EL LOGIN DEL USUARIO
         .then(async (data) => {
           const json = data.data;
           setLista(json);
@@ -74,7 +76,7 @@ const Productos = ({ navigation }) => {
     var textoMensaje = "";
     setEspera(true);
     Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-    await Axios.get("/roles/listar")
+    await Axios.get("/productos/listar")
       .then(async (data) => {
         const json = data.data;
 
