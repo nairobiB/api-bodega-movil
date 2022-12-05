@@ -178,6 +178,7 @@ const Estilos = StyleSheet.create({
     padding: 10,
     backgroundColor: "#ffffff",
     flexDirection: "row",
+    flexWrap: "wrap",
   },
   contenedorTexto: {
     justifyContent: "center",
@@ -193,12 +194,12 @@ const Estilos = StyleSheet.create({
   },
 
   contenedorB: {
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    borderColor: "black",
     backgroundColor: "#ffffff",
     flexDirection: "row",
-    flex: 1,
+
+    justifyContent: "space-evenly",
+
+    width: Dimensions.get("window").width / 1.27,
     // flexDirection: "column",
     // justifyContent: "space-evenly",
     // marginTop: 5,

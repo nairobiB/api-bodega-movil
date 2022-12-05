@@ -30,8 +30,10 @@ const Usuarios = (props) => {
     <View style={Estilos.contenedorTipo}>
       <Image style={Estilos.imagen} source={login} />
       <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.rol.id}</Text>
-        <Text>{props.rol.nombreRol}</Text>
+        <Text>ID: {props.usuario.id}</Text>
+        <Text>{props.usuario.usuario}</Text>
+        <Text>{props.usuario.correo}</Text>
+        <Text>{props.usuario.permisos}</Text>
       </View>
       <Divider
         my="3"

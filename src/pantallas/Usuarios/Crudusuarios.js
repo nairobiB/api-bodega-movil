@@ -72,7 +72,8 @@ const PersonalCrud = () => {
             <Text style={Estilos.labelCruds}>Usuario</Text>
             <TextInput
               style={
-                validacionNombre ? Estilos.entradas_error : Estilos.entradas
+                (validacionNombre ? Estilos.entradas_error : Estilos.entradas,
+                Estilos.entradasCrud)
               }
               placeholder="Ingrese el correo o nombre de usuario"
               onChangeText={setNombreUsuario}
@@ -89,7 +90,10 @@ const PersonalCrud = () => {
             <Text style={Estilos.labelCruds}>Contraseña</Text>
             <TextInput
               style={
-                validacionContrasena ? Estilos.entradas_error : Estilos.entradas
+                (validacionContrasena
+                  ? Estilos.entradas_error
+                  : Estilos.entradas,
+                Estilos.entradasCrud)
               }
               placeholder="Ingrese la Contraseña"
               onChangeText={setContrasena}
@@ -108,7 +112,8 @@ const PersonalCrud = () => {
             <Text style={Estilos.labelCruds}>Correo</Text>
             <TextInput
               style={
-                validacionCorreo ? Estilos.entradas_error : Estilos.entradas
+                (validacionCorreo ? Estilos.entradas_error : Estilos.entradas,
+                Estilos.entradasCrud)
               }
               placeholder="Ingrese el correo"
               onChangeText={setCorreo}
@@ -127,6 +132,7 @@ const PersonalCrud = () => {
               leftIcon={
                 <Icon as={Ionicons} name="cloud-upload-outline" size="sm" />
               }
+              colorScheme="darkBlue"
             >
               Cargar imagen
             </Button>
@@ -137,11 +143,19 @@ const PersonalCrud = () => {
             <Switch size="lg" />
           </View>
           <View style={Estilos.contenedorBotones}>
-            <Button style={Estilos.botones} color={"red"}>
-              Cancelar
-            </Button>
-            <Button color={"#313087"} style={Estilos.botones}>
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              colorScheme="darkBlue"
+            >
               Guardar
+            </Button>
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              colorScheme="muted"
+            >
+              Cancelar
             </Button>
           </View>
         </View>
