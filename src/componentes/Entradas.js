@@ -28,8 +28,8 @@ const Entradas = (props) => {
     <View style={Estilos.contenedorTipo}>
       <View style={Estilos.contenedorTexto}>
         <Text>ID: {props.entrada.id}</Text>
-        <Text>ID Cliente:{props.entrada.idCliente}</Text>
-        <Text>Fecha:{props.entrada.fechaIngreso}</Text>
+        <Text>ID Cliente: {props.entrada.idCliente}</Text>
+        <Text>Fecha: {props.entrada.fechaIngreso}</Text>
       </View>
       <Divider
         my="3"
@@ -41,26 +41,19 @@ const Entradas = (props) => {
         }}
       />
       <View style={Estilos.contenedorB}>
-        {/* <Button title="Editar" color={"#313087"}></Button>
-        <Button title="Eliminar" color={"#852834"}></Button> */}
-        <Button.Group
-          isAttached
-          mx={{
-            base: "auto",
-            md: 0,
-          }}
-          size="50px"
+        <Button
+          startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
+          colorScheme="darkBlue"
         >
-          <Button
-            startIcon={<Icon as={Feather} name="edit" size={6}></Icon>}
-            colorScheme="darkBlue"
-          ></Button>
-          <Button
-            startIcon={<Icon as={MaterialIcons} name="delete" size={7}></Icon>}
-            variant="solid"
-            colorScheme="red"
-          ></Button>
-        </Button.Group>
+          Editar
+        </Button>
+        <Button
+          startIcon={<Icon as={MaterialIcons} name="delete" size={4}></Icon>}
+          variant="solid"
+          colorScheme="red"
+        >
+          Eliminar
+        </Button>
       </View>
     </View>
   );
