@@ -48,7 +48,11 @@ const Roles = (props) => {
           <Button
             startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
             colorScheme="darkBlue"
-            onPress={() => nav.navigate("editar", {})}
+            onPress={() =>
+              nav.navigate("editar", {
+                id: props.rol.id,
+              })
+            }
           >
             Editar
           </Button>

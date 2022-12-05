@@ -5,9 +5,9 @@ import Axios from "../../componentes/Axios";
 import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-export default function App() {
+export default function App(props) {
   const [nombreRol, setnombreRol] = useState(null);
-  const [idRol, setIdRol] = useState(rol.id);
+  const [idRol, setIdRol] = useState(1);
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Agregar";
@@ -74,7 +74,7 @@ export default function App() {
             <Text style={Estilos.labelCruds}>ID del rol</Text>
             <View>
               <TextInput
-                value={rol.id}
+                value={"1"}
                 onChangeText={setnombreRol}
                 editable={false}
                 style={Estilos.entradasCrud}
