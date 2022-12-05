@@ -46,7 +46,7 @@ const Clientes = ({ navigation }) => {
       var textoMensaje = "";
       setEspera(true);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.get("/clientes/buscarnombreRol?nombreRol=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
+      await Axios.get("/clientes/buscarnombre?nombreCompleto=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
         .then(async (data) => {
           const json = data.data;
           setLista(json);
@@ -127,14 +127,14 @@ const Clientes = ({ navigation }) => {
                 style={
                   validarFiltro ? Estilos.entradas_error : Estilos.entradas
                 }
-                placeholder="Escriba el nombre del rol"
+                placeholder="Escriba el nombre del Cliente"
                 value={Filtro}
                 onChangeText={setFiltro}
               ></TextInput>
               {validarFiltro ? (
                 <>
                   <Text style={Estilos.etiqueta_error}>
-                    Debe escribir el nombre del rol
+                    Debe escribir el nombre del Cliete
                   </Text>
                 </>
               ) : (
