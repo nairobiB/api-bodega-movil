@@ -108,7 +108,7 @@ const Productos = ({ navigation }) => {
         </View>
       </ImageBackground>
       <View style={Estilos.contenedorBotones}>
-        <View style={Estilos.botonNuevo}>
+        <View style={Estilos.botonNuevo}> 
           <Button
             onPress={() => nav.navigate("crudproductos")}
             colorScheme="darkBlue"
