@@ -140,7 +140,7 @@ const PersonalCrud = () => {
 
           <View style={Estilos.estados}>
             <Text style={Estilos.labelCruds}>Activo</Text>
-            <Switch size="lg" />
+            <Switch size="lg" defaultIsChecked />
           </View>
           <View style={Estilos.contenedorBotones}>
             <Button

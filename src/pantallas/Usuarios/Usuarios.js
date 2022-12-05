@@ -134,7 +134,7 @@ const Roles = ({ navigation }) => {
               {validarFiltro ? (
                 <>
                   <Text style={Estilos.etiqueta_error}>
-                    Debe escribir el nombre del rol
+                    Debe escribir el nombre del usuario
                   </Text>
                 </>
               ) : (

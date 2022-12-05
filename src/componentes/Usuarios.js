@@ -2,33 +2,32 @@ import { View, Image, StyleSheet, Text, Checkbox } from "react-native";
 //import Checkbox from 'expo-checkbox';
 import { Icon, Group, Button, Divider } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
-import login from "../../assets/login.jpg";
+import login from "../../assets/nulo.png";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 
-// const uriImagen = Image.resolveAssetSource(login).uri;
-//import { urlImagenesRoles } from '../configuracion/Urls';
+const uriImagen = Image.resolveAssetSource(login).uri;
+import { urlImagenesUsuarios } from "../configuraciones/Urls";
 const Usuarios = (props) => {
   const [Check, setCheck] = useState(false);
-  // const [imagen, setImagen] = useState(uriImagen);
-  // useEffect(() =>{
-  //     setImagen(cargarImagen);
-  //     // setCheck(props.rol.activo);
-  // }, []);
+  const [imagen, setImagen] = useState(uriImagen);
+  useEffect(() => {
+    setImagen(cargarImagen);
+    // setCheck(props.usuario.activo);
+  }, []);
 
-  // const cargarImagen = () =>{
-  //     console.log(props.rol.imagen);
-  //     if(props.rol.imagen == null){
-  //         setImagen(uriImagen);
-  //     }
-  //     else{
-  //         setImagen(urlImagenesRoles + props.rol.imagen);
-  //     }
-  //     return imagen;
-  // }
+  const cargarImagen = () => {
+    console.log(props.usuario.imagen);
+    if (props.usuario.imagen == null) {
+      setImagen(uriImagen);
+    } else {
+      setImagen(urlImagenesUsuarios + props.usuario.imagen);
+    }
+    return imagen;
+  };
   return (
     <View style={Estilos.contenedorTipo}>
-      <Image style={Estilos.imagen} source={login} />
+      <Image style={Estilos.imagen} source={{ uri: imagen }} />
       <View style={Estilos.contenedorTexto}>
         <Text>ID: {props.usuario.id}</Text>
         <Text>{props.usuario.usuario}</Text>
