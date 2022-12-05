@@ -27,7 +27,6 @@ const Personal = (props) => {
  // };
   return (
     <View style={Estilos.contenedorTipo}>
-      <Image style={Estilos.imagen} source={{uri:imagen}} />
       <View style={Estilos.contenedorTexto}>
         <Text>ID: {props.personal.id}</Text>
         <Text>Personal: {props.personal.nombreCompleto}</Text>

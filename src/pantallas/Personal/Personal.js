@@ -16,7 +16,7 @@ import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
-const Personal = ({ navigation }) => {
+const Empleado = () => {
   const { token } = useContext(UsuarioContext);
   const [Filtro, setFiltro] = useState(null);
   const [lista, setLista] = useState([]);
@@ -166,4 +166,4 @@ const Personal = ({ navigation }) => {
     </View>
   );
 };
-export default Personal;
+export default Empleado;
