@@ -5,10 +5,11 @@ import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
-
+import { useNavigation } from "@react-navigation/native";
 // const uriImagen = Image.resolveAssetSource(login).uri;
 //import { urlImagenesRoles } from '../configuracion/Urls';
-const Usuarios = (props) => {
+const Roles = (props) => {
+  const nav = useNavigation();
   const [Check, setCheck] = useState(false);
   // const [imagen, setImagen] = useState(uriImagen);
   // useEffect(() =>{
@@ -47,6 +48,7 @@ const Usuarios = (props) => {
           <Button
             startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
             colorScheme="darkBlue"
+            onPress={() => nav.navigate("editar", {})}
           >
             Editar
           </Button>
@@ -63,4 +65,4 @@ const Usuarios = (props) => {
   );
 };
 
-export default Usuarios;
+export default Roles;

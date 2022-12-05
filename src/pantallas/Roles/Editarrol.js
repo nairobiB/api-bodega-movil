@@ -1,14 +1,17 @@
 import Estilos from "../../componentes/Estilos";
-import { Text, ScrollView, View, Button, TextInput, Alert } from "react-native";
+import { Text, ScrollView, View, TextInput, Alert } from "react-native";
+import Roles from "../../componentes/Roles";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Switch } from "native-base";
+import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
 export default function App() {
   const [nombreRol, setnombreRol] = useState(null);
+  const [idRol, setIdRol] = useState(rol.id);
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Agregar";
+  var textoMensaje = "";
   useEffect(() => {
     if (!nombreRol) {
       setValidarRol(true);
@@ -19,10 +22,10 @@ export default function App() {
     }
   }, [nombreRol]);
 
-  const guardarrol = async (data) => {
+  const editarrol = async (data) => {
     try {
       console.log(nombreRol);
-      await Axios.post("/roles/guardar", {
+      await Axios.post("/roles/editar", {
         nombreRol: data.nombreRol,
       })
         .then(async (data) => {
@@ -47,7 +50,7 @@ export default function App() {
   const agregar = async () => {
     if (!validarRol) {
       setEspera(true);
-      await guardarrol({ nombreRol: nombreRol });
+      await editarrol({ nombreRol: nombreRol });
       setEspera(false);
     } else {
       Alert.alert(titulo, "Debe enviar los datos correctos");
@@ -68,21 +71,54 @@ export default function App() {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
+            <Text style={Estilos.labelCruds}>ID del rol</Text>
+            <View>
+              <TextInput
+                value={rol.id}
+                onChangeText={setnombreRol}
+                editable={false}
+                style={Estilos.entradasCrud}
+              />
+            </View>
             <Text style={Estilos.labelCruds}>Nombre del rol</Text>
-            <TextInput
-              value={nombreRol}
-              onChangeText={setnombreRol}
-              placeholder="Ingrese el rol"
-            />
+            <View>
+              <TextInput
+                value={nombreRol}
+                onChangeText={setnombreRol}
+                placeholder="Ingrese el rol"
+                style={Estilos.entradasCrud}
+              />
+            </View>
           </View>
 
-          <View style={Estilos.contenedorBotones}>
-            <Button
+          <View style={Estilos.contenedorBotonesCrud}>
+            {/* <Button
               color={"#313087"}
               style={Estilos.botones}
               onPress={agregar}
               title="Guardar"
             />
+            <Button
+              color={"#313087"}
+              style={Estilos.botones}
+              onPress={agregar}
+              title="Cancelar"
+            /> */}
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              onPress={agregar}
+              colorScheme="darkBlue"
+            >
+              Guardar
+            </Button>
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              colorScheme="muted"
+            >
+              Cancelar
+            </Button>
           </View>
         </View>
       </View>
