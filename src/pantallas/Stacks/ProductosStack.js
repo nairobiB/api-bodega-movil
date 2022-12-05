@@ -13,7 +13,7 @@ export default function ProductosStack() {
         options={{ title: "" }}
       />
       <Stack.Screen
-        name="crud"
+        name="crudproducto"
         component={CrudProducto}
         options={{ title: "Nuevo" }}
       />
