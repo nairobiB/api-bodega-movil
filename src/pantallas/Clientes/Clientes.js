@@ -108,7 +108,7 @@ const Clientes = ({ navigation }) => {
       <View style={Estilos.contenedorBotones}>
         <View style={Estilos.botonNuevo}>
           <Button
-            onPress={() => nav.navigate("CrudSalida")}
+            onPress={() => nav.navigate("crud")}
             colorScheme="darkBlue"
           >
             Agregar nuevo Registro
