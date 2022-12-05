@@ -23,7 +23,7 @@ export default function App() {
       </ImageBackground>
       <View style={Estilos.contenedorBotones}>
         <View style={Estilos.botonNuevo}>
-          <Button colorScheme="darkBlue">Agregar nuevo Registro</Button>
+          <Button colorScheme="darkBlue"  onPress={() => nav.navigate("CrudSalidas")}>Agregar nuevo Registro</Button>
         </View>
       </View>
       <View style={Estilos.busqueda}>
