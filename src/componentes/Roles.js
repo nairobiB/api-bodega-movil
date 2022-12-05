@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Text, Checkbox } from "react-native";
 import { Icon, Group, Button, Divider } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
+import { useNavigation } from "@react-navigation/native";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 
@@ -10,6 +11,14 @@ import Estilos from "./Estilos";
 //import { urlImagenesRoles } from '../configuracion/Urls';
 const Usuarios = (props) => {
   const [Check, setCheck] = useState(false);
+  const nav = useNavigation();
+
+  const presionar = () => {
+    const idRol = props.rol.id
+    const rolname = props.rol.nombreRol
+    nav.navigate("editar", { id: idRol, antiguoRol: rolname});
+    console.log(idRol)
+  }
   // const [imagen, setImagen] = useState(uriImagen);
   // useEffect(() =>{
   //     setImagen(cargarImagen);
@@ -46,7 +55,7 @@ const Usuarios = (props) => {
         <View style={Estilos.contenedorB}>
           <Button
             startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
-            colorScheme="darkBlue"
+            colorScheme="darkBlue" onPress={presionar}
           >
             Editar
           </Button>
