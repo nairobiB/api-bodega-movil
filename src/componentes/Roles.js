@@ -1,6 +1,6 @@
 import { View, Image, StyleSheet, Text } from "react-native";
 //import Checkbox from 'expo-checkbox';
-import { Button, Icon, Group } from "native-base";
+import { Button, Icon, Group, Divider } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
