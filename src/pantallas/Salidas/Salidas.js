@@ -13,7 +13,7 @@ import {
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import login from "../../../assets/login.jpg";
 export default function App() {
-  const navegacion = useNavigation();
+  const nav = useNavigation();
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <ImageBackground source={login} style={Estilos.banner}>
