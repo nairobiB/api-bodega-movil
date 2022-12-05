@@ -29,7 +29,7 @@ const Entradas = (props) => {
       <View style={Estilos.contenedorTexto}>
         <Text>ID: {props.entrada.id}</Text>
         <Text>ID Cliente:{props.entrada.idCliente}</Text>
-        <Text>Fecha:{props.entrada.fecha_Salida}</Text>
+        <Text>Fecha:{props.entrada.fechaIngreso}</Text>
       </View>
       <Divider
         my="3"
