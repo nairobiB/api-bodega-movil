@@ -6,32 +6,33 @@ import login from "../../assets/nulo.png";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 
-const uriImagen = Image.resolveAssetSource(login).uri;
-import { urlImagenesProductos } from "../configuraciones/Urls";
-const Productos = (props) => {
-  const [Check, setCheck] = useState(false);
-  const [imagen, setImagen] = useState(uriImagen);
-  useEffect(() => {
-    setImagen(cargarImagen);
+//const uriImagen = Image.resolveAssetSource(login).uri;
+//import { urlImagenesProductos } from "../configuraciones/Urls";
+const Personal = (props) => {
+//  const [Check, setCheck] = useState(false);
+ // const [imagen, setImagen] = useState(uriImagen);
+ // useEffect(() => {
+  //  setImagen(cargarImagen);
     // setCheck(props.usuario.activo);
-  }, []);
+ // }, []);
 
-  const cargarImagen = () => {
-    console.log(props.producto.imagen);
-    if (props.producto.imagen == null) {
-      setImagen(uriImagen);
-    } else {
-      setImagen(urlImagenesProductos + props.producto.imagen);
-    }
-    return imagen;
-  };
+ // const cargarImagen = () => {
+  //  console.log(props.producto.imagen);
+  //  if (props.producto.imagen == null) {
+   //   setImagen(uriImagen);
+   // } else {
+    //  setImagen(urlImagenesProductos + props.producto.imagen);
+   // }
+   // return imagen;
+ // };
   return (
     <View style={Estilos.contenedorTipo}>
       <Image style={Estilos.imagen} source={{uri:imagen}} />
       <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.producto.id}</Text>
-        <Text>Producto: {props.producto.nombreProducto}</Text>
-        <Text>Precio: {props.producto.precioVenta}</Text>
+        <Text>ID: {props.personal.id}</Text>
+        <Text>Personal: {props.personal.nombreCompleto}</Text>
+        <Text>Direccion: {props.personal.direccion}</Text>
+        <Text>Correo: {props.personal.correo_Personal}</Text>
       </View>
       <Divider
         my="3"
@@ -63,4 +64,4 @@ const Productos = (props) => {
   );
 };
 
-export default Productos;
+export default Personal;

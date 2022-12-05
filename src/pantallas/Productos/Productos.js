@@ -74,7 +74,7 @@ const Productos = ({ navigation }) => {
     var textoMensaje = "";
     setEspera(true);
     Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-    await Axios.get("/roles/listar")
+    await Axios.get("/productos/listar")
       .then(async (data) => {
         const json = data.data;
 
@@ -106,7 +106,7 @@ const Productos = ({ navigation }) => {
         </View>
       </ImageBackground>
       <View style={Estilos.contenedorBotones}>
-        <View style={Estilos.botonNuevo}>
+        <View style={Estilos.botonNuevo}> 
           <Button
             onPress={() => nav.navigate("crudproductos")}
             colorScheme="darkBlue"
