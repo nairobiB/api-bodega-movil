@@ -10,8 +10,8 @@ import { Ionicons } from "@expo/vector-icons";
 export default function App({ route, navigation }) {
   const nav = useNavigation();
   const { token } = useContext(UsuarioContext);
-  const [nombreRol, setnombreRol] = useState(null);
   const { id, antiguoRol } = route.params;
+  const [nombreRol, setnombreRol] = useState(antiguoRol);
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Editar";
@@ -84,14 +84,13 @@ export default function App({ route, navigation }) {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Rol actual: {antiguoRol}</Text>
             <Text style={Estilos.labelCruds}>Nombre del rol</Text>
             <TextInput
               value={nombreRol}
               onChangeText={setnombreRol}
               placeholder="Ingrese el rol"
               style={Estilos.entradasCrud}
-            />
+            ></TextInput>
           </View>
 
           <View style={Estilos.contenedorBotones}>
