@@ -12,7 +12,7 @@ import login from "../../../assets/login.jpg";
 import UsuarioContext from "../../contexto/UsuarioContext";
 import Cargando from "../../componentes/Cargando";
 import Rol from "../../componentes/Roles";
-import Axios from "../../componentes/Axios"; 
+import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
@@ -50,7 +50,7 @@ const Roles = ({ navigation }) => {
         .then(async (data) => {
           const json = data.data;
           setLista(json);
-          console.log(json);
+          // console.log(json);
           // if (json.errores.length == 0) {
           //     textoMensaje = "Datos cargados";
           //     setLista(json.data);
@@ -79,7 +79,7 @@ const Roles = ({ navigation }) => {
         const json = data.data;
 
         setLista(json);
-        console.log(json);
+        // console.log(json);
         // if (json.errores.length == 0) {
         //     setLista(json.data);
         // }

@@ -106,7 +106,7 @@ export default function App({ route, navigation }) {
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              // onPress={}
+              onPress={() => nav.goBack()}
               colorScheme="muted"
             >
               Cancelar

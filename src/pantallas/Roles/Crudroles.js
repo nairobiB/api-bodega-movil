@@ -4,7 +4,9 @@ import Axios from "../../componentes/Axios";
 import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 export default function App() {
+  const nav = useNavigation();
   const [nombreRol, setnombreRol] = useState(null);
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
@@ -54,6 +56,10 @@ export default function App() {
       Alert.alert(titulo, "Debe enviar los datos correctos");
     }
   };
+  const regresar = () => {
+    agregar();
+    nav.goBack();
+  };
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
@@ -96,7 +102,7 @@ export default function App() {
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              onPress={agregar}
+              onPress={regresar}
               colorScheme="darkBlue"
             >
               Guardar
@@ -104,8 +110,8 @@ export default function App() {
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              onPress={agregar}
               colorScheme="muted"
+              onPress={() => nav.goBack()}
             >
               Cancelar
             </Button>
