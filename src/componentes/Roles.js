@@ -118,6 +118,6 @@ const Usuarios = (props) => {
       </Modal>
     </View>
   );
-};
+}; 
 
 export default Usuarios;

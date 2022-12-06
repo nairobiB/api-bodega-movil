@@ -100,7 +100,7 @@ const Roles = ({ navigation }) => {
     }
   };
   return (
-    <View style={Estilos.container}>
+    <View style={Estilos.container}> 
       <ImageBackground source={login} style={Estilos.banner}>
         <View style={Estilos.firstView}>
           <Octicons name="people" size={65} color="white" />
