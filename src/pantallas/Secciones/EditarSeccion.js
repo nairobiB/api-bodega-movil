@@ -1,44 +1,44 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, View, TextInput, Alert } from "react-native";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Button, Switch } from "native-base";
+import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import UsuarioContext from "../../contexto/UsuarioContext";
-import { useNavigation } from "@react-navigation/native";
-
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-export default function App({ route, navigation }) {
+import { useNavigation } from "@react-navigation/native";
+
+export default function App({route, navigation}) {
   const nav = useNavigation();
   const { token } = useContext(UsuarioContext);
-  const { id, antiguoRol } = route.params;
-  const [nombreRol, setnombreRol] = useState(antiguoRol);
-  const [validarRol, setValidarRol] = useState(false);
+  const { id, lastSecName } = route.params;
+  const [nombreSeccion, setnombreSec] = useState(lastSecName);
+  const [validarSec, setValidarSec] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Editar";
   useEffect(() => {
-    if (!nombreRol) {
-      setValidarRol(true);
-    } else if (nombreRol.length < 3 && nombreRol.length > 50) {
-      setValidarRol(true);
+    if (!nombreSeccion) {
+      setValidarSec(true);
+    } else if (nombreSeccion.length < 3 && nombreSeccion.length > 50) {
+      setValidarSec(true);
     } else {
-      setValidarRol(false);
+      setValidarSec(false);
     }
-  }, [nombreRol]);
+  }, [nombreSeccion]);
 
-  const editarRol = async (data) => {
+  const editarSec = async (data) => {
     var textoMensaje = "";
     try {
-      console.log(nombreRol);
+      console.log(nombreSeccion);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.put("/roles/editar?id=" + id, {
-        nombreRol: nombreRol,
+      await Axios.put("/secciones/editar?id=" + id, {
+        nombreSeccion: nombreSeccion,
       })
 
         .then(async (data) => {
           console.log(data);
           const json = data.data;
           if (json.errores.length == 0) {
-            nombreRol = json.data.nombreRol;
+            nombreSeccion = json.data.nombreSeccion;
           } else {
             json.errores.forEach((element) => {
               textoMensaje += element.mensaje + ". ";
@@ -56,7 +56,7 @@ export default function App({ route, navigation }) {
   };
 
   const regresar = () => {
-    editarRol();
+    editarSec();
     nav.goBack();
   };
 
@@ -75,16 +75,18 @@ export default function App({ route, navigation }) {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Nombre del rol</Text>
-            <TextInput
-              value={nombreRol}
-              onChangeText={setnombreRol}
-              placeholder="Ingrese el rol"
-              style={Estilos.entradasCrud}
-            ></TextInput>
+            <Text style={Estilos.labelCruds}>Nombre de la Seccion</Text>
+            <View>
+              <TextInput
+                value={nombreSeccion}
+                onChangeText={setnombreSec}
+                placeholder="Ingrese la Seccion"
+                style={Estilos.entradasCrud}
+              />
+            </View>
           </View>
 
-          <View style={Estilos.contenedorBotones}>
+          <View style={Estilos.contenedorBotonesCrud}>
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
@@ -96,8 +98,8 @@ export default function App({ route, navigation }) {
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              onPress={() => nav.goBack()}
               colorScheme="muted"
+              onPress={() => nav.goBack()}
             >
               Cancelar
             </Button>

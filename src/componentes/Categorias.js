@@ -16,37 +16,22 @@ import { useNavigation } from "@react-navigation/native";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 
-const Person = (props) => {
+const Categorias = (props) => {
   const { token } = useContext(UsuarioContext);
-
   const nav = useNavigation();
   const [showModal, setShowModal] = useState(false);
-  const presss = () => {
-    const idPersonal = props.personal.id;
-    const personalnombre = props.personal.nombreCompleto;
-    const dir = props.personal.direccion;
-    const cor = props.personal.correo_Personal;
-    const tel = props.personal.telefono;
-    const fecha = props.personal.fechaNac;
-    const rol = props.personal.RolId;
-    const suc = props.personal.SucursalId;
-    nav.navigate("editarpersonal", {
-      id: idPersonal,
-      oldname: personalnombre,
-      olddir: dir,
-      oldcor: cor,
-      oldtel: tel,
-      oldfecha: fecha,
-      oldrol: rol,
-      oldsuc: suc,
-    });
-    console.log(idPersonal);
+  const presionar = () => {
+    const idCat = props.cat.id;
+    const nameCat = props.cat.nombreCategoria;
+    const secCat = props.cat.SeccionId;
+    nav.navigate("EditarCategoria", { id: idCat, lastCatName: nameCat, lastSec: secCat });
+    console.log(secCat);
   };
   const eliminar = async (data) => {
     var textoMensaje = "";
     try {
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.delete("/personal/eliminar?id=" + props.personal.id)
+      await Axios.delete("/categorias/eliminar?id=" + props.cat.id)
 
         .then(async (data) => {
           console.log(data);
@@ -72,13 +57,8 @@ const Person = (props) => {
   return (
     <View style={Estilos.contenedorTipo}>
       <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.personal.id}</Text>
-        <Text>Nombre: {props.personal.nombreCompleto}</Text>
-        <Text>Direccion: {props.personal.direccion}</Text>
-        <Text>Correo: {props.personal.correo_Personal}</Text>
-        <Text>Telefono: {props.personal.telefono}</Text>
-        <Text>Rol: {props.personal.RolId}</Text>
-        <Text>Sucursal: {props.personal.SucursalId}</Text>
+        <Text>ID: {props.cat.id}</Text>
+        <Text>{props.cat.nombreCategoria}</Text>
       </View>
       <Divider
         my="3"
@@ -94,7 +74,7 @@ const Person = (props) => {
           <Button
             startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
             colorScheme="darkBlue"
-            onPress={presss}
+            onPress={presionar}
           >
             Editar
           </Button>
@@ -114,8 +94,8 @@ const Person = (props) => {
           <Modal.Header>Eliminar registro</Modal.Header>
           <Modal.Body>
             <FormControl>
-              <FormControl.Label>Nombre del personal</FormControl.Label>
-              <Input value={props.personal.nombreCompleto} editable={false} />
+              <FormControl.Label>Nombre de la Categoria</FormControl.Label>
+              <Input value={props.cat.nombreCategoria} editable={false} />
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
@@ -140,4 +120,4 @@ const Person = (props) => {
   );
 };
 
-export default Person;
+export default Categorias;

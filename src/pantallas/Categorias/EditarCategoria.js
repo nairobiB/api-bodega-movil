@@ -1,44 +1,50 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, View, TextInput, Alert } from "react-native";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Button, Switch } from "native-base";
+import { Icon, Divider, Heading, Switch, Button } from "native-base";
 import UsuarioContext from "../../contexto/UsuarioContext";
-import { useNavigation } from "@react-navigation/native";
-
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-export default function App({ route, navigation }) {
+import { useNavigation } from "@react-navigation/native";
+
+export default function App({route, navigation}) {
   const nav = useNavigation();
   const { token } = useContext(UsuarioContext);
-  const { id, antiguoRol } = route.params;
-  const [nombreRol, setnombreRol] = useState(antiguoRol);
-  const [validarRol, setValidarRol] = useState(false);
+  const { id, lastCatName, lastSec } = route.params;
+  const [nombreCat, setnombreCat] = useState(lastCatName);
+  const [secCat, setseccionCat] = useState(lastSec.toString());
+  const [validarCat, setValidarCat] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Editar";
+  var textoMensaje = "";
   useEffect(() => {
-    if (!nombreRol) {
-      setValidarRol(true);
-    } else if (nombreRol.length < 3 && nombreRol.length > 50) {
-      setValidarRol(true);
-    } else {
-      setValidarRol(false);
+    if (!nombreCat && !secCat) {
+      setValidarCat(true);
+    } else if (nombreCat.length < 3 && nombreCat.length > 50) {
+      setValidarCat(true);
+    } else if (secCat) {
+      setValidarCat(true);
     }
-  }, [nombreRol]);
+    else {
+      setValidarCat(false);
+    }
+  }, [nombreCat], [secCat]);
 
-  const editarRol = async (data) => {
+  const editarCat = async (data) => {
     var textoMensaje = "";
     try {
-      console.log(nombreRol);
+      console.log(nombreCat);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.put("/roles/editar?id=" + id, {
-        nombreRol: nombreRol,
+      await Axios.put("/categorias/editar?id=" + id, {
+        nombreCategoria: nombreCat,
+        SeccionId: secCat,
       })
 
         .then(async (data) => {
           console.log(data);
           const json = data.data;
           if (json.errores.length == 0) {
-            nombreRol = json.data.nombreRol;
+            nombreCat = json.data.nombreCat;
           } else {
             json.errores.forEach((element) => {
               textoMensaje += element.mensaje + ". ";
@@ -56,10 +62,9 @@ export default function App({ route, navigation }) {
   };
 
   const regresar = () => {
-    editarRol();
+    editarCat();
     nav.goBack();
   };
-
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
@@ -75,16 +80,25 @@ export default function App({ route, navigation }) {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Nombre del rol</Text>
-            <TextInput
-              value={nombreRol}
-              onChangeText={setnombreRol}
-              placeholder="Ingrese el rol"
-              style={Estilos.entradasCrud}
-            ></TextInput>
+            <Text style={Estilos.labelCruds}>Nombre de la Categoria</Text>
+            <View>
+              <TextInput
+                value={nombreCat}
+                onChangeText={setnombreCat}
+                placeholder="Ingrese la Categoria"
+                style={Estilos.entradasCrud}
+              />
+
+              <TextInput
+                value={secCat}
+                onChangeText={setseccionCat}
+                placeholder="Ingrese la Seccion"
+                style={Estilos.entradasCrud}
+              />
+            </View>
           </View>
 
-          <View style={Estilos.contenedorBotones}>
+          <View style={Estilos.contenedorBotonesCrud}>
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
@@ -96,8 +110,8 @@ export default function App({ route, navigation }) {
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              onPress={() => nav.goBack()}
               colorScheme="muted"
+              onPress={() => nav.goBack()}
             >
               Cancelar
             </Button>

@@ -11,21 +11,21 @@ import Estilos from "../../componentes/Estilos";
 import login from "../../../assets/login.jpg";
 import UsuarioContext from "../../contexto/UsuarioContext";
 import Cargando from "../../componentes/Cargando";
-import Personal from "../../componentes/Personal";
+import Cat from "../../componentes/Categorias";
 import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
-const Empleado = () => {
+const Categorias = ({ navigation }) => {
   const { token } = useContext(UsuarioContext);
   const [Filtro, setFiltro] = useState(null);
   const [lista, setLista] = useState([]);
   const [validarFiltro, setValidarFiltro] = useState(false);
   const [espera, setEspera] = useState(false);
-  const titulo = "Lista de Personal";
+  const titulo = "Lista de Categorias";
   const nav = useNavigation();
   useEffect(() => {
-    BuscarPersonalTodos();
+    BuscarCategoriasTodos();
   }, []);
   useEffect(() => {
     if (!Filtro) {
@@ -38,19 +38,21 @@ const Empleado = () => {
   }, [Filtro]);
   useEffect(() => {
     if (!validarFiltro) {
-      BuscarPersonal();
+      BuscarCategorias();
     }
   }, [validarFiltro]);
-  const BuscarPersonal = async () => {
+  const BuscarCategorias = async () => {
     if (!validarFiltro) {
       var textoMensaje = "";
       setEspera(true);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.get("/personal/buscarnombre?nombreCompleto=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
+      await Axios.get(
+        "/categorias/buscarnombre?nombreCategoria=" + Filtro + "%"
+      ) //BUSCA EL LOGIN DEL USUARIO
         .then(async (data) => {
           const json = data.data;
           setLista(json);
-          console.log(json);
+          // console.log(json);
           // if (json.errores.length == 0) {
           //     textoMensaje = "Datos cargados";
           //     setLista(json.data);
@@ -70,16 +72,16 @@ const Empleado = () => {
       Alert.alert(titulo, "Debe enviar los datos correctos");
     }
   };
-  const BuscarPersonalTodos = async () => {
+  const BuscarCategoriasTodos = async () => {
     var textoMensaje = "";
     setEspera(true);
     Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-    await Axios.get("/personal/listar")
+    await Axios.get("/categorias/listar")
       .then(async (data) => {
         const json = data.data;
 
         setLista(json);
-        console.log(json);
+        // console.log(json);
         // if (json.errores.length == 0) {
         //     setLista(json.data);
         // }
@@ -108,7 +110,7 @@ const Empleado = () => {
       <View style={Estilos.contenedorBotones}>
         <View style={Estilos.botonNuevo}>
           <Button
-            onPress={() => nav.navigate("crudpersonal")}
+            onPress={() => nav.navigate("CrudCategorias")}
             colorScheme="darkBlue"
           >
             Agregar nuevo Registro
@@ -127,14 +129,14 @@ const Empleado = () => {
                 style={
                   validarFiltro ? Estilos.entradas_error : Estilos.entradas
                 }
-                placeholder="Escriba el nombre del personal"
+                placeholder="Escriba el nombre de la Categoria"
                 value={Filtro}
                 onChangeText={setFiltro}
               ></TextInput>
               {validarFiltro ? (
                 <>
                   <Text style={Estilos.etiqueta_error}>
-                    Debe escribir el nombre del personal
+                    Debe escribir el nombre de la Categoria
                   </Text>
                 </>
               ) : (
@@ -145,7 +147,7 @@ const Empleado = () => {
               <View style={Estilos.botones}>
                 <Button
                   title="Ver Todos"
-                  onPress={BuscarPersonalTodos}
+                  onPress={BuscarCategoriasTodos}
                   colorScheme="trueGray"
                 >
                   Ver Todos
@@ -155,7 +157,7 @@ const Empleado = () => {
             <View style={Estilos.contenedorControles}>
               <FlatList
                 data={lista}
-                renderItem={({ item }) => <Personal personal={item}></Personal>}
+                renderItem={({ item }) => <Cat cat={item}></Cat>}
                 keyExtractor={(item) => item.id}
               />
             </View>
@@ -166,4 +168,4 @@ const Empleado = () => {
     </View>
   );
 };
-export default Empleado;
+export default Categorias;
