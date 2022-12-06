@@ -1,5 +1,5 @@
 import Estilos from "../../componentes/Estilos";
-import { Text, ScrollView, ImageBackground, View } from "react-native";
+import { Text, ScrollView, ImageBackground, View, FlatList } from "react-native";
 import {
   Icon,
   Input,
@@ -11,10 +11,62 @@ import {
   MaterialIcons,
   Switch,
 } from "native-base";
+import React, { useState, useEffect, useContext } from "react";
+import UsuarioContext from "../../contexto/UsuarioContext";
+import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
-export default function App() {
+import Ent from "../../componentes/DetEntrada";
+import Axios from "../../componentes/Axios";
+
+export default function App({ route, navigation }) {
+  const { token } = useContext(UsuarioContext);
+  const nav = useNavigation();
+  const { id, idCliente,fechIngreso, idSucursal } = route.params; 
+  const [lista, setLista] = useState([]);
+  const [validarFiltro, setValidarFiltro] = useState(false);
+  const [espera, setEspera] = useState(false);
+  const titulo = "Lista de Entradas";
+
+  useEffect(() => {
+    BuscarDetalles();
+  }, []);
+
+
+
+  const BuscarDetalles = async () => {
+    var textoMensaje = "";
+    setEspera(true);
+
+    Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+    await Axios.get("/entradasdetalles/buscarid?idEntrada="+ id)
+      .then(async (data) => {
+        const json = data.data;
+
+        setLista(json);
+        console.log(json);
+        // if (json.errores.length == 0) {
+        //     setLista(json.data);
+        // }
+        // else {
+        //     textoMensaje = '';
+        //     json.errores.forEach(element => {
+        //         textoMensaje += element.mensaje + '. ';
+        //     });
+        // }
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+    setEspera(false);
+    if (textoMensaje != "") {
+      Alert.alert(titulo, textoMensaje);
+    }
+  };
+
+
+ 
   return (
-    <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
+    <View style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
         <Divider
           my="2"
@@ -31,68 +83,52 @@ export default function App() {
             <Text style={Estilos.labelCruds}>Cliente</Text>
             <Input
               size={"lg"}
+              value={idCliente}
+              type="text"
               variant="outline"
               placeholder="Ingrese nombre del cliente"
             />
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Fecha de ingreso</Text>
-            <Input size={"lg"} variant="outline" placeholder="YYYY-MM-DD" />
+            <Input size={"lg"} 
+            value={fechIngreso}
+            variant="outline" placeholder="YYYY-MM-DD" />
           </View>
           <View style={Estilos.contenedorControles}>
             <Text style={Estilos.labelCruds}>Sucursal</Text>
             <Input
               size={"lg"}
+              value={idSucursal}
               variant="outline"
               placeholder="Nombre sucursal"
             />
           </View>
 
-          <View style={Estilos.busqueda}>
-            <VStack
-              my="4"
-              space={5}
-              w="100%"
-              maxW="300px"
-              divider={
-                <Box px="2">
-                  <Divider />
-                </Box>
-              }
-            >
-              <VStack w="100%" space={5} alignSelf="center">
-                <Heading fontSize="lg">Agregar producto</Heading>
-                <Input
-                  placeholder="Search"
-                  variant="filled"
-                  width="100%"
-                  borderRadius="10"
-                  py="1"
-                  size={"lg"}
-                  px="2"
-                  InputLeftElement={
-                    <Icon
-                      ml="2"
-                      size="4"
-                      color="gray.400"
-                      as={<Ionicons name="ios-search" />}
-                    />
-                  }
-                />
-              </VStack>
-            </VStack>
+          <View style={Estilos.contenedorBotonesCrud}
+          >
+                <Button
+                style={Estilos.botonescrud}
+                  onPress={() => nav.navigate("detEntrada",{id:id})}
+                  colorScheme="darkBlue"
+                >
+                  Agregar nuevo Producto
+                </Button>
+
           </View>
 
-          <View style={Estilos.contenedorBotones}>
-            <Button style={Estilos.botones} color={"red"}>
-              Cancelar
-            </Button>
-            <Button color={"#313087"} style={Estilos.botones}>
-              Guardar
-            </Button>
-          </View>
+
+          <View style={Estilos.contenedorContenido}>
+              <FlatList
+                data={lista}
+                renderItem={({ item }) => <Ent detalleEntrada={item}></Ent>}
+                keyExtractor={(item) => item.idProducto}
+              />
+            </View>
         </View>
+
       </View>
-    </ScrollView>
+      
+    </View>
   );
 }
