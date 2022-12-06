@@ -21,8 +21,8 @@ const Hamburger = () => {
   return (
     <NavigationContainer initialRouteName="Inicio" independent={"true"}>
       <Drawer.Navigator>
-        <Drawer.Screen name="Mi Perfil" component={Perfil} />
         <Drawer.Screen name="Inicio" component={Inicio} />
+        <Drawer.Screen name="Cerrar Sesión" component={Perfil} />
         <Drawer.Screen name="Gestión Entradas" component={Entradas} />
         <Drawer.Screen name="Gestión Salidas" component={Salidas} />
         <Drawer.Screen name="Gestión Productos" component={Productos} />

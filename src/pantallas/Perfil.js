@@ -12,7 +12,7 @@ const Perfil = () => {
   };
   return (
     <View style={{ justifyContent: "center", flex: 1 }}>
-      <Text style={{ fontSize: 20, alignSelf: "center" }}>Cerrar sesión</Text>
+      <Text style={{ fontSize: 20, alignSelf: "center" }}></Text>
       <Button
         style={Estilos.btnLogin}
         title="Cerrar sesión"
