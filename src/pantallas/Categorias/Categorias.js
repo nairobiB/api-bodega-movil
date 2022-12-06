@@ -46,7 +46,9 @@ const Categorias = ({ navigation }) => {
       var textoMensaje = "";
       setEspera(true);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.get("/categorias/buscarnombreCategoria?nombreCategoria=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
+      await Axios.get(
+        "/categorias/buscarnombre?nombreCategoria=" + Filtro + "%"
+      ) //BUSCA EL LOGIN DEL USUARIO
         .then(async (data) => {
           const json = data.data;
           setLista(json);

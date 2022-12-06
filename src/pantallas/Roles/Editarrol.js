@@ -59,15 +59,6 @@ export default function App({ route, navigation }) {
     editarRol();
     nav.goBack();
   };
-  const agregar = async () => {
-    if (!validarRol) {
-      setEspera(true);
-      await editarRol({ nombreRol: nombreRol });
-      setEspera(false);
-    } else {
-      Alert.alert(titulo, "Debe enviar los datos correctos");
-    }
-  };
 
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
