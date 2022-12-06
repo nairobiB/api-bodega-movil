@@ -21,8 +21,10 @@ import Axios from "../../componentes/Axios";
 export default function App({ route, navigation }) {
   const { token } = useContext(UsuarioContext);
   const nav = useNavigation();
-  const { id, idCliente,fechIngreso, idSucursal } = route.params; 
+  const { id, cliente,fechIngreso, sucursal } = route.params; 
+  
   const [lista, setLista] = useState([]);
+
   const [validarFiltro, setValidarFiltro] = useState(false);
   const [espera, setEspera] = useState(false);
   const titulo = "Lista de Entradas";
@@ -35,8 +37,8 @@ export default function App({ route, navigation }) {
 
   const BuscarDetalles = async () => {
     var textoMensaje = "";
+    console.log(id, cliente, fechIngreso,sucursal);
     setEspera(true);
-
     Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     await Axios.get("/entradasdetalles/buscarid?idEntrada="+ id)
       .then(async (data) => {
@@ -80,29 +82,15 @@ export default function App({ route, navigation }) {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Cliente</Text>
-            <Input
-              size={"lg"}
-              value={idCliente}
-              type="text"
-              variant="outline"
-              placeholder="Ingrese nombre del cliente"
-            />
+            <Text style={Estilos.labelCruds}>Cliente: {cliente}</Text>
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Fecha de ingreso</Text>
-            <Input size={"lg"} 
-            value={fechIngreso}
-            variant="outline" placeholder="YYYY-MM-DD" />
+            <Text style={Estilos.labelCruds}>Fecha de ingreso: {fechIngreso}</Text>
+        
           </View>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>Sucursal</Text>
-            <Input
-              size={"lg"}
-              value={idSucursal}
-              variant="outline"
-              placeholder="Nombre sucursal"
-            />
+            <Text style={Estilos.labelCruds}>Sucursal: {sucursal}</Text>
+    
           </View>
 
           <View style={Estilos.contenedorBotonesCrud}
