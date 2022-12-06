@@ -66,23 +66,6 @@ const Usuarios = (props) => {
           bg: "muted.50",
         }}
       />
-      <View>
-        <View style={Estilos.contenedorB}>
-          <Button
-            startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
-            colorScheme="darkBlue"
-          >
-            Editar
-          </Button>
-          <Button
-            startIcon={<Icon as={MaterialIcons} name="delete" size={4}></Icon>}
-            variant="solid"
-            colorScheme="red"
-          >
-            Eliminar
-          </Button>
-        </View>
-      </View>
 
     </View>
   );

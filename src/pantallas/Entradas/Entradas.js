@@ -108,12 +108,12 @@ const Entradas = ({ navigation }) => {
       <View style={Estilos.contenedorBotones}>
         <View style={Estilos.botonNuevo}>
           <Button
-            
+            onPress={() => nav.navigate("guardarEntrada")}
             colorScheme="darkBlue"
           >
             Agregar nuevo Registro
           </Button>
-        </View>
+        </View> 
       </View>
 
       <View style={Estilos.contenedorContenido}>

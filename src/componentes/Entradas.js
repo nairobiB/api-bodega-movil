@@ -15,13 +15,13 @@ const Entradas = (props) => {
   const nav = useNavigation();
   const [showModal, setShowModal] = useState(false);
   const presionar = () => {
-    const idRol = props.entrada.id;
+    const id = props.entrada.id;
     const idCliente = props.entrada.idCliente;
     const fechaIngreso = props.entrada.fechaIngreso;
     const idSucursal = props.entrada.idSucursal;
    
-    nav.navigate("crudEntrada", { id: idRol, cliente:idCliente,fechIngreso:fechaIngreso, sucursal:idSucursal});
-    console.log(idRol, idCliente, fechaIngreso,idSucursal);
+    nav.navigate("crudEntrada", { id: id, cliente:idCliente,fechIngreso:fechaIngreso, sucursal:idSucursal});
+   
   };
   // const [imagen, setImagen] = useState(uriImagen);
   // useEffect(() =>{
