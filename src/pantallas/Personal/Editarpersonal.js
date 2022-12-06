@@ -16,8 +16,8 @@ export default function App({ route, navigation }) {
   const [correo_Personal, setcorreo_Personal] = useState(oldcor);
   const [telefono, setTelefono] = useState(oldtel);
   const [fechaNac, setFechaNac] = useState(oldfecha);
-  const [RolId, setRolId] = useState(oldrol);
-  const [SucursalId, setSucursalId] = useState(oldsuc);
+  const [RolId, setRolId] = useState(oldrol.toString());
+  const [SucursalId, setSucursalId] = useState(oldsuc.toString());
   const [espera, setEspera] = useState(false);
   const [validacionNombre, setValidacionNombre] = useState(false);
   const [validacionDireccion, setValidacionDireccion] = useState(false);
