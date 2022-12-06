@@ -1,17 +1,20 @@
 import Estilos from "../../componentes/Estilos";
 import { Text, ScrollView, View, TextInput, Alert } from "react-native";
-import Roles from "../../componentes/Roles";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Switch, Button } from "native-base";
+import { Icon, Divider, Heading, Button, Switch } from "native-base";
+import UsuarioContext from "../../contexto/UsuarioContext";
+import { useNavigation } from "@react-navigation/native";
+
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-export default function App(props) {
+export default function App({ route, navigation }) {
+  const nav = useNavigation();
+  const { token } = useContext(UsuarioContext);
   const [nombreRol, setnombreRol] = useState(null);
-  const [idRol, setIdRol] = useState(1);
+  const { id, antiguoRol } = route.params;
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
-  const titulo = "Agregar";
-  var textoMensaje = "";
+  const titulo = "Editar";
   useEffect(() => {
     if (!nombreRol) {
       setValidarRol(true);
@@ -22,11 +25,13 @@ export default function App(props) {
     }
   }, [nombreRol]);
 
-  const editarrol = async (data) => {
+  const editarRol = async (data) => {
+    var textoMensaje = "";
     try {
       console.log(nombreRol);
-      await Axios.post("/roles/editar", {
-        nombreRol: data.nombreRol,
+      Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      await Axios.put("/roles/editar?id=" + id, {
+        nombreRol: nombreRol,
       })
 
         .then(async (data) => {
@@ -50,10 +55,14 @@ export default function App(props) {
     }
   };
 
+  const regresar = () => {
+    editarRol();
+    nav.goBack();
+  };
   const agregar = async () => {
     if (!validarRol) {
       setEspera(true);
-      await editarrol({ nombreRol: nombreRol });
+      await editarRol({ nombreRol: nombreRol });
       setEspera(false);
     } else {
       Alert.alert(titulo, "Debe enviar los datos correctos");
@@ -75,38 +84,29 @@ export default function App(props) {
 
         <View style={Estilos.contenedorContenido}>
           <View style={Estilos.contenedorControles}>
-            <Text style={Estilos.labelCruds}>ID del rol</Text>
-            <View>
-              <TextInput
-                value={"1"}
-                onChangeText={setnombreRol}
-                editable={false}
-                style={Estilos.entradasCrud}
-              />
-            </View>
+            <Text style={Estilos.labelCruds}>Rol actual: {antiguoRol}</Text>
             <Text style={Estilos.labelCruds}>Nombre del rol</Text>
-            <View>
-              <TextInput
-                value={nombreRol}
-                onChangeText={setnombreRol}
-                placeholder="Ingrese el rol"
-                style={Estilos.entradasCrud}
-              />
-            </View>
+            <TextInput
+              value={nombreRol}
+              onChangeText={setnombreRol}
+              placeholder="Ingrese el rol"
+              style={Estilos.entradasCrud}
+            />
           </View>
 
-          <View style={Estilos.contenedorBotonesCrud}>
+          <View style={Estilos.contenedorBotones}>
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
-              onPress={agregar}
+              onPress={regresar}
               colorScheme="darkBlue"
             >
-              Guardar
+              Editar
             </Button>
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
+              onPress={() => nav.goBack()}
               colorScheme="muted"
             >
               Cancelar
