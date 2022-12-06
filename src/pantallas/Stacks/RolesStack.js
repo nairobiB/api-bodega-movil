@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Roles from "../Roles/Roles";
 import Crudroles from "../Roles/Crudroles";
-import Editarrol from "../Roles/Editarrol"
+import Editarrol from "../Roles/Editarrol";
 
 const Stack = createStackNavigator();
 export default function RolesStack(route) {
@@ -17,8 +17,7 @@ export default function RolesStack(route) {
       <Stack.Screen
         name="editar"
         component={Editarrol}
-        options={{ title: "Modificación"}}
-      
+        options={{ title: "Modificación" }}
       />
     </Stack.Navigator>
   );

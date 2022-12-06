@@ -1,13 +1,16 @@
 import Estilos from "../../componentes/Estilos";
-import { Text, ScrollView, View, Button, TextInput, Alert } from "react-native";
+import { Text, ScrollView, View, TextInput, Alert } from "react-native";
 import Axios from "../../componentes/Axios";
-import { Icon, Divider, Heading, Switch } from "native-base";
+import { Icon, Divider, Heading, Button, Switch } from "native-base";
 import UsuarioContext from "../../contexto/UsuarioContext";
+import { useNavigation } from "@react-navigation/native";
+
 import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-export default function App( {route, navigation} ) {
+export default function App({ route, navigation }) {
+  const nav = useNavigation();
   const { token } = useContext(UsuarioContext);
-  const [ nombreRol, setnombreRol] = useState(null);
+  const [nombreRol, setnombreRol] = useState(null);
   const { id, antiguoRol } = route.params;
   const [validarRol, setValidarRol] = useState(false);
   const [espera, setEspera] = useState(false);
@@ -26,13 +29,13 @@ export default function App( {route, navigation} ) {
     var textoMensaje = "";
     try {
       console.log(nombreRol);
-      Axios.defaults.headers.common["Authorization"] = "Bearer " + token
+      Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
       await Axios.put("/roles/editar?id=" + id, {
         nombreRol: nombreRol,
       })
-        
+
         .then(async (data) => {
-          console.log(data)
+          console.log(data);
           const json = data.data;
           if (json.errores.length == 0) {
             nombreRol = json.data.nombreRol;
@@ -52,6 +55,10 @@ export default function App( {route, navigation} ) {
     }
   };
 
+  const regresar = () => {
+    editarRol();
+    nav.goBack();
+  };
   const agregar = async () => {
     if (!validarRol) {
       setEspera(true);
@@ -83,16 +90,27 @@ export default function App( {route, navigation} ) {
               value={nombreRol}
               onChangeText={setnombreRol}
               placeholder="Ingrese el rol"
+              style={Estilos.entradasCrud}
             />
           </View>
 
           <View style={Estilos.contenedorBotones}>
             <Button
               color={"#313087"}
-              style={Estilos.botones}
-              onPress={editarRol}
-              title="Editar"
-            />
+              style={Estilos.botonescrud}
+              onPress={regresar}
+              colorScheme="darkBlue"
+            >
+              Editar
+            </Button>
+            <Button
+              color={"#313087"}
+              style={Estilos.botonescrud}
+              // onPress={}
+              colorScheme="muted"
+            >
+              Cancelar
+            </Button>
           </View>
         </View>
       </View>
