@@ -12,7 +12,7 @@ import login from "../../../assets/login.jpg";
 import UsuarioContext from "../../contexto/UsuarioContext";
 import Cargando from "../../componentes/Cargando";
 import Personal from "../../componentes/Personal";
-import Axios from "../../componentes/Axios"; 
+import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
@@ -46,7 +46,7 @@ const Empleado = () => {
       var textoMensaje = "";
       setEspera(true);
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.get("/personal/buscarnombrePersonal?nombreCompleto=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
+      await Axios.get("/personal/buscarnombre?nombreCompleto=" + Filtro + "%") //BUSCA EL LOGIN DEL USUARIO
         .then(async (data) => {
           const json = data.data;
           setLista(json);
@@ -106,7 +106,7 @@ const Empleado = () => {
         </View>
       </ImageBackground>
       <View style={Estilos.contenedorBotones}>
-        <View style={Estilos.botonNuevo}> 
+        <View style={Estilos.botonNuevo}>
           <Button
             onPress={() => nav.navigate("crudpersonal")}
             colorScheme="darkBlue"

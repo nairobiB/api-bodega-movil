@@ -6,16 +6,18 @@ import React, { useState, useEffect, useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import UsuarioContext from "../../contexto/UsuarioContext";
-export default function App() {
+export default function App({ route, navigation }) {
   const nav = useNavigation();
   const { token } = useContext(UsuarioContext);
-  const [nombreCompleto, setnombreCompleto] = useState(null);
-  const [direccion, setDireccion] = useState(null);
-  const [correo_Personal, setcorreo_Personal] = useState(null);
-  const [telefono, setTelefono] = useState(null);
-  const [fechaNac, setFechaNac] = useState(null);
-  const [RolId, setRolId] = useState(null);
-  const [SucursalId, setSucursalId] = useState(null);
+  const { id, oldname, olddir, oldcor, oldtel, oldfecha, oldrol, oldsuc } =
+    route.params;
+  const [nombreCompleto, setnombreCompleto] = useState(oldname);
+  const [direccion, setDireccion] = useState(olddir);
+  const [correo_Personal, setcorreo_Personal] = useState(oldcor);
+  const [telefono, setTelefono] = useState(oldtel);
+  const [fechaNac, setFechaNac] = useState(oldfecha);
+  const [RolId, setRolId] = useState(oldrol);
+  const [SucursalId, setSucursalId] = useState(oldsuc);
   const [espera, setEspera] = useState(false);
   const [validacionNombre, setValidacionNombre] = useState(false);
   const [validacionDireccion, setValidacionDireccion] = useState(false);
@@ -65,28 +67,32 @@ export default function App() {
     }
   }, [nombreCompleto, direccion, correo_Personal, telefono, fechaNac]);
 
-  const guardarpersonal = async (data) => {
+  const editarpersonal = async (data) => {
     try {
+      textoMensaje = "";
       console.log(nombreCompleto);
-      await Axios.post("/personal/guardar", {
-        nombreCompleto: data.nombreCompleto,
-        direccion: data.direccion,
-        correo_Personal: data.correo_Personal,
-        telefono: data.telefono,
-        fechaNac: data.fechaNac,
-        RolId: data.RolId,
-        SucursalId: data.SucursalId,
+      Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      await Axios.put("/personal/editar?id=" + id, {
+        nombreCompleto: nombreCompleto,
+        direccion: direccion,
+        correo_Personal: correo_Personal,
+        telefono: telefono,
+        fechaNac: fechaNac,
+        RolId: RolId,
+        SucursalId: SucursalId,
       })
         .then(async (data) => {
+          textoMensaje = "";
+          console.log(data);
           const json = data.data;
           if (json.errores.length == 0) {
             nombreCompleto = json.data.nombreCompleto;
-            (direccion = json.data.direccion),
-              (correo_Personal = json.data.correo_Personal),
-              (telefono = json.data.telefono),
-              (fechaNac = json.data.fechaNac),
-              (RolId = json.data.RolId),
-              (SucursalId = json.data.SucursalId);
+            direccion = json.data.direccion;
+            correo_Personal = json.data.correo_Personal;
+            telefono = json.data.telefono;
+            fechaNac = json.data.fechaNac;
+            RolId = json.data.RolId;
+            SucursalId = json.data.SucursalId;
           } else {
             json.errores.forEach((element) => {
               textoMensaje += element.mensaje + ". ";
@@ -102,25 +108,8 @@ export default function App() {
     }
   };
 
-  const agregar = async () => {
-    if (!validacionNombre) {
-      setEspera(true);
-      await guardarpersonal({
-        nombreCompleto: nombreCompleto,
-        direccion: direccion,
-        correo_Personal: correo_Personal,
-        telefono: telefono,
-        fechaNac: fechaNac,
-        RolId: RolId,
-        SucursalId: SucursalId,
-      });
-      setEspera(false);
-    } else {
-      Alert.alert(titulo, "Debe enviar los datos correctos");
-    }
-  };
   const regresar = () => {
-    agregar();
+    editarpersonal();
     nav.goBack();
   };
   return (
@@ -204,18 +193,6 @@ export default function App() {
           </View>
 
           <View style={Estilos.contenedorBotonesCrud}>
-            {/* <Button
-              color={"#313087"}
-              style={Estilos.botones}
-              onPress={agregar}
-              title="Guardar"
-            />
-            <Button
-              color={"#313087"}
-              style={Estilos.botones}
-              onPress={agregar}
-              title="Cancelar"
-            /> */}
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}

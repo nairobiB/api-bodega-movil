@@ -50,6 +50,7 @@ const Roles = ({ navigation }) => {
         .then(async (data) => {
           const json = data.data;
           setLista(json);
+          console.log(json);
           // console.log(json);
           // if (json.errores.length == 0) {
           //     textoMensaje = "Datos cargados";
