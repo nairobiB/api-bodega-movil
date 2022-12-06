@@ -227,6 +227,7 @@ const PersonalCrud = () => {
               placeholder="Ingrese la Contraseña"
               value= {contrasena}
               onChangeText={setContrasena}
+              secureTextEntry={true}
             ></TextInput>
             {validacionContrasena ? (
               <>

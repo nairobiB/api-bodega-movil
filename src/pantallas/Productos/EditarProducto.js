@@ -31,9 +31,9 @@ export default function App({ route, navigation }) {
   const { id, nombreantiguo, preciouniantiguo, preciovenantiguo, idcategantiguo } = route.params;
 const [espera, setEspera] = useState(false);
 const [nombreProducto,setnombreProducto] = useState(nombreantiguo);
-const [precioUnitario, setprecioUnitario] = useState(preciouniantiguo);
-const [precioVenta, setprecioVenta] = useState(preciovenantiguo);
-const [idCategoria, setidCategoria] = useState(idcategantiguo);
+const [precioUnitario, setprecioUnitario] = useState(preciouniantiguo.toString());
+const [precioVenta, setprecioVenta] = useState(preciovenantiguo.toString());
+const [idCategoria, setidCategoria] = useState(idcategantiguo.toString());
     const [validarnombreProducto,setvalidarnombreProducto] = useState(false);
     const [validarprecioUnitario, setvalidarprecioUnitario] = useState(false);
     const [validarprecioVenta, setvalidarprecioVenta] = useState(false);
