@@ -5,25 +5,17 @@ import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
-// const uriImagen = Image.resolveAssetSource(login).uri;
-//import { urlImagenesRoles } from '../configuracion/Urls';
-const Salidas = (props) => {
-  // const [imagen, setImagen] = useState(uriImagen);
-  // useEffect(() =>{
-  //     setImagen(cargarImagen);
-  //     // setCheck(props.rol.activo);
-  // }, []);
+import { useNavigation } from "@react-navigation/native";
 
-  // const cargarImagen = () =>{
-  //     console.log(props.rol.imagen);
-  //     if(props.rol.imagen == null){
-  //         setImagen(uriImagen);
-  //     }
-  //     else{
-  //         setImagen(urlImagenesRoles + props.rol.imagen);
-  //     }
-  //     return imagen;
-  // }
+const Salidas = (props) => {
+  const nav = useNavigation();
+  const presionar = () =>{
+    const id = props.salida.id;
+
+    nav.navigate("CrudSalida", {id:id});
+    console.log(id);
+  }
+  
   return (
     <View style={Estilos.contenedorTipo}>
       <View style={Estilos.contenedorTexto}>
@@ -44,6 +36,7 @@ const Salidas = (props) => {
         <Button
           startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
           colorScheme="darkBlue"
+          onPress={presionar}
         >
           Editar
         </Button>

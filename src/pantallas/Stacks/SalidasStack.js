@@ -19,7 +19,7 @@ export default function EntradaStack() {
         options={{ title: "Nuevo" }}
       />
         <Stack.Screen
-        name="Detalle Salida"
+        name="DetallesSalidas"
         component={DetSalida}
         options={{ title: "Detalles de Salidas" }}
       />
