@@ -79,7 +79,7 @@ const Clientes = ({ navigation }) => {
         const json = data.data;
 
         setLista(json);
-        console.log(json);
+        // console.log(json);
         // if (json.errores.length == 0) {
         //     setLista(json.data);
         // }

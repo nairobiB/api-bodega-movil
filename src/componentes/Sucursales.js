@@ -16,36 +16,25 @@ import { useNavigation } from "@react-navigation/native";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
 
-const Comprador = (props) => {
+const Sucursales = (props) => {
   const { token } = useContext(UsuarioContext);
 
   const nav = useNavigation();
   const [showModal, setShowModal] = useState(false);
-  const presss = () => {
-    const idCliente = props.cliente.id;
-    const nombreCompleto = props.cliente.nombreCompleto;
-    const dir = props.cliente.direccion;
-    const cor = props.cliente.correo;
-    const tel = props.cliente.telefono;
-    const fecha = props.cliente.fechaNac;
-    const RTN = props.cliente.RTN;
-    const activo = props.cliente.activo;
-    nav.navigate("editar", {
-      id: idCliente,
-      oldname: nombreCompleto,
-      olddir: dir,
-      oldcor: cor,
-      oldtel: tel,
-      oldfecha: fecha,
-      oldrtn: RTN,
-    });
-    console.log(idCliente);
+  
+  const presionar = () => {
+    const idSucursal = props.sucursal.id;
+    const Sucursalname = props.sucursal.nombreSucursal;
+    const Direccion = props.sucursal.Direccion;
+    nav.navigate("editar", { id: idSucursal, antiguaSucursal: Sucursalname, antiguoDireccion: Direccion });
+    console.log(idSucursal);
   };
+
   const eliminar = async (data) => {
     var textoMensaje = "";
     try {
       Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      await Axios.delete("/clientes/eliminar?id=" + props.cliente.id)
+      await Axios.delete("/sucursales/eliminar?id=" + props.sucursal.id)
 
         .then(async (data) => {
           console.log(data);
@@ -71,13 +60,9 @@ const Comprador = (props) => {
   return (
     <View style={Estilos.contenedorTipo}>
       <View style={Estilos.contenedorTexto}>
-        <Text>ID: {props.cliente.id}</Text>
-        <Text>Nombre: {props.cliente.nombreCompleto}</Text>
-        <Text>Direccion: {props.cliente.direccion}</Text>
-        <Text>Correo: {props.cliente.correo}</Text>
-        <Text>Telefono: {props.cliente.telefono}</Text>
-        <Text>FechaNac: {props.cliente.fechaNac}</Text>
-        <Text>RTN: {props.cliente.RTN}</Text>
+        <Text>ID: {props.sucursal.id}</Text>
+        <Text>{props.sucursal.nombreSucursal}</Text>
+        <Text>{props.sucursal.Direccion}</Text>
       </View>
       <Divider
         my="3"
@@ -93,7 +78,7 @@ const Comprador = (props) => {
           <Button
             startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
             colorScheme="darkBlue"
-            onPress={presss}
+            onPress={presionar}
           >
             Editar
           </Button>
@@ -113,8 +98,8 @@ const Comprador = (props) => {
           <Modal.Header>Eliminar registro</Modal.Header>
           <Modal.Body>
             <FormControl>
-              <FormControl.Label>Nombre del Cliente</FormControl.Label>
-              <Input value={props.cliente.nombreCompleto} editable={false} />
+              <FormControl.Label>Nombre de la sucursal</FormControl.Label>
+              <Input value={props.sucursal.nombreSucursal} editable={false} />
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
@@ -139,4 +124,4 @@ const Comprador = (props) => {
   );
 };
 
-export default Comprador;
+export default Sucursales;
