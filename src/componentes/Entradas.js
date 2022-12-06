@@ -5,9 +5,24 @@ import React, { useState, useEffect, useContext } from "react";
 import login from "../../assets/login.jpg";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 import Estilos from "./Estilos";
+import UsuarioContext from "../contexto/UsuarioContext";
+import { useNavigation } from "@react-navigation/native";
 // const uriImagen = Image.resolveAssetSource(login).uri;
 //import { urlImagenesRoles } from '../configuracion/Urls';
 const Entradas = (props) => {
+  const { token } = useContext(UsuarioContext);
+
+  const nav = useNavigation();
+  const [showModal, setShowModal] = useState(false);
+  const presionar = () => {
+    const idRol = props.entrada.id;
+    const idCliente = props.entrada.idCliente;
+    const fechaIngreso = props.entrada.fechaIngreso;
+    const idSucursal = props.entrada.idSucursal;
+   
+    nav.navigate("crudEntrada", { id: idRol, cliente:idCliente,fechIngreso:fechaIngreso, sucursal:idSucursal});
+    console.log(idRol, idCliente, fechaIngreso,idSucursal);
+  };
   // const [imagen, setImagen] = useState(uriImagen);
   // useEffect(() =>{
   //     setImagen(cargarImagen);
@@ -42,8 +57,14 @@ const Entradas = (props) => {
       />
       <View style={Estilos.contenedorB}>
         <Button
-          startIcon={<Icon as={Feather} name="edit" size={4}></Icon>}
+          
+          startIcon={<Icon as={Feather}
+           name="edit" 
+           size={4}></Icon>}
           colorScheme="darkBlue"
+          onPress={presionar}
+
+
         >
           Editar
         </Button>

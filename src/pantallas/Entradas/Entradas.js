@@ -108,7 +108,7 @@ const Entradas = ({ navigation }) => {
       <View style={Estilos.contenedorBotones}>
         <View style={Estilos.botonNuevo}>
           <Button
-            onPress={() => nav.navigate("crudEntrada")}
+            
             colorScheme="darkBlue"
           >
             Agregar nuevo Registro
