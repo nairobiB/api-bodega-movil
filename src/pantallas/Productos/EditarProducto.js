@@ -21,16 +21,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import Axios from "../../componentes/Axios";
 import { useNavigation } from "@react-navigation/native";
+import UsuarioContext from "../../contexto/UsuarioContext";
 
-export default function App() {
+export default function App({ route, navigation }) {
   const nav = useNavigation();
-  const titulo = "Agregar";
+  const titulo = "Editar";
   var textoMensaje = "";
+  const { token } = useContext(UsuarioContext);
+  const { id, nombreantiguo, preciouniantiguo, preciovenantiguo, idcategantiguo } = route.params;
 const [espera, setEspera] = useState(false);
-const [nombreProducto,setnombreProducto] = useState(null);
-const [precioUnitario, setprecioUnitario] = useState(null);
-const [precioVenta, setprecioVenta] = useState(null);
-const [idCategoria, setidCategoria] = useState(null);
+const [nombreProducto,setnombreProducto] = useState(nombreantiguo);
+const [precioUnitario, setprecioUnitario] = useState(preciouniantiguo);
+const [precioVenta, setprecioVenta] = useState(preciovenantiguo);
+const [idCategoria, setidCategoria] = useState(idcategantiguo);
     const [validarnombreProducto,setvalidarnombreProducto] = useState(false);
     const [validarprecioUnitario, setvalidarprecioUnitario] = useState(false);
     const [validarprecioVenta, setvalidarprecioVenta] = useState(false);
@@ -65,16 +68,20 @@ const [idCategoria, setidCategoria] = useState(null);
 
     },[nombreProducto,precioUnitario,precioVenta,idCategoria]);
 
-    const guardarProducto = async (data) => {
+    const editarProducto = async (data) => {
+      var textoMensaje = "";
       try {
         console.log(nombreProducto);
-        await Axios.post("/productos/guardar", {
+        Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+        await Axios.put("/productos/editar?id=" + id, {
           nombreProducto: data.nombreProducto,
           precioUnitario: data.precioUnitario,
           precioVenta: data.precioVenta,
           idCategoria: data.idCategoria,
         })
+  
           .then(async (data) => {
+            console.log(data);
             const json = data.data;
             if (json.errores.length == 0) {
               nombreProducto = json.data.nombreProducto,
@@ -86,6 +93,7 @@ const [idCategoria, setidCategoria] = useState(null);
                 textoMensaje += element.mensaje + ". ";
               });
             }
+            console.log(data);
           })
           .catch((error) => {
             textoMensaje = error;
@@ -99,7 +107,7 @@ const [idCategoria, setidCategoria] = useState(null);
     const agregar = async () => {
       if (!validarnombreProducto || !validarprecioUnitario || !validarprecioVenta || !validaridCategoria) {
         setEspera(true);
-        await guardarProducto({ nombreProducto: nombreProducto, 
+        await editarProducto({ nombreProducto: nombreProducto, 
         precioUnitario: precioUnitario,
         precioVenta: precioVenta,
         idCategoria: idCategoria
@@ -177,10 +185,14 @@ const [idCategoria, setidCategoria] = useState(null);
             >
               Cargar imagen
             </Button>
-          
+          </View>
+          <View style={Estilos.contenedorBotonesCrud}>
+            <Button style={Estilos.botonescrud} color={"red"}>
+              Cancelar
+            </Button>
             <Button color={"#313087"} style={Estilos.botonescrud}
               onPress={regresar}>
-              Guardar
+              Editar
             </Button>
           </View>
         </View>

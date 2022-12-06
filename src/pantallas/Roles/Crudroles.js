@@ -89,7 +89,7 @@ export default function App() {
           <View style={Estilos.contenedorBotonesCrud}>
             {/* <Button
               color={"#313087"}
-              style={Estilos.botones}
+              style={Estilos.botones} 
               onPress={agregar}
               title="Guardar"
             />

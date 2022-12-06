@@ -17,7 +17,10 @@ import {
   Switch,
 } from "native-base";
 import { Ionicons, Entypo } from "@expo/vector-icons";
-export default function App() {
+import { useNavigation } from "@react-navigation/native";
+export default function App({route,navigation}) {
+  const nav = useNavigation();
+  const { id } = route.params
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
@@ -66,38 +69,16 @@ export default function App() {
           </View>
 
           <View style={Estilos.busqueda}>
-        <VStack
-          my="4"
-          space={5}
-          w="100%"
-          maxW="300px"
-          divider={
-            <Box px="2">
-              <Divider />
-            </Box>
-          }
-        >
-          <VStack w="100%" space={5} alignSelf="center">
-            <Heading fontSize="lg">Agregar producto</Heading>
-            <Input
-              placeholder="Search"
-              variant="filled"
-              width="100%"
-              borderRadius="10"
-              py="1"
-              size={"lg"}
-              px="2"
-              InputLeftElement={
-                <Icon
-                  ml="2"
-                  size="4"
-                  color="gray.400"
-                  as={<Ionicons name="ios-search" />}
-                />
-              }
-            />
-          </VStack>
-        </VStack>
+
+          <View style={Estilos.contenedorBotonesAgregar}>
+                <Button
+                  onPress={() => nav.navigate("DetallesSalidas",{id:id})}
+                  colorScheme="darkBlue"
+                >
+                  Agregar nuevo Producto
+                </Button>
+
+          </View>
       </View>
 
           <View style={Estilos.contenedorBotones}>

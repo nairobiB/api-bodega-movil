@@ -16,6 +16,7 @@ import Axios from "../../componentes/Axios";
 import { Button, Heading } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
+
 const Productos = ({ navigation }) => {
   const { token } = useContext(UsuarioContext);
   const [Filtro, setFiltro] = useState(null);
