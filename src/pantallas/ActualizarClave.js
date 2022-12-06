@@ -139,14 +139,14 @@ const ActualizarClave = () => {
                 <Text style={Estilos.labelLogin}>Usuario</Text>
                 <TextInput
                   placeholder="Ingrese su usuario"
-                  style={{ marginTop: 5 }}
+                  style={Estilos.entradas}
                   value={usuario}
                   onChangeText={setUsuario}
                 ></TextInput>
                 <Text style={Estilos.labelLogin}>Pin</Text>
                 <TextInput
                   placeholder="Ingrese el Pin recibido"
-                  style={{ marginTop: 5 }}
+                  style={Estilos.entradas}
                   value={pin}
                   onChangeText={setpin}
                   type="number"
@@ -162,7 +162,7 @@ const ActualizarClave = () => {
                 <Text style={Estilos.labelLogin}>Nueva Contraseña</Text>
                 <TextInput
                   placeholder="Ingrese la nueva contraseña"
-                  style={{ marginTop: 5 }}
+                  style={Estilos.entradas}
                   secureTextEntry={true}
                   value={contrasena}
                   onChangeText={setContrasena}
@@ -179,7 +179,7 @@ const ActualizarClave = () => {
                 <Text style={Estilos.labelLogin}>Confirmar contraseña</Text>
                 <TextInput
                   placeholder="Confirme su nueva contraseña"
-                  style={{ marginTop: 5 }}
+                  style={Estilos.entradas}
                   secureTextEntry={true}
                   value={confirmarContrasena}
                   onChangeText={setconfirmarContrasena}

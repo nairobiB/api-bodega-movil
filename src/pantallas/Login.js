@@ -86,7 +86,7 @@ const Login = ({ navigation }) => {
             <Text style={Estilos.labelLogin}>Usuario</Text>
             <TextInput
               placeholder="Ingrese su usuario"
-              style={{ marginTop: 5 }}
+              style={Estilos.entradas}
               value={usuario}
               onChangeText={setUsuario}
             ></TextInput>
@@ -95,7 +95,7 @@ const Login = ({ navigation }) => {
             <Text style={Estilos.labelLogin}>Contraseña</Text>
             <TextInput
               placeholder="Ingrese su contraseña"
-              style={{ marginTop: 5 }}
+              style={Estilos.entradas}
               secureTextEntry={true}
               value={contrasena}
               onChangeText={setContrasena}
@@ -108,9 +108,11 @@ const Login = ({ navigation }) => {
               title="Iniciar sesión"
               onPress={iniciarSesion}
             ></Button>
-            <Button
+          </View>
+          <View style={{ marginTop: 30 }}>
+          <Button
               title="Recuperar Contraseña"
-              color={"#000"}
+              style={Estilos.btnLogin}
               onPress={irpin}
             ></Button>
           </View>

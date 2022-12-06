@@ -68,13 +68,6 @@ const Entradas = (props) => {
         >
           Editar
         </Button>
-        <Button
-          startIcon={<Icon as={MaterialIcons} name="delete" size={4}></Icon>}
-          variant="solid"
-          colorScheme="red"
-        >
-          Eliminar
-        </Button>
       </View>
     </View>
   );
