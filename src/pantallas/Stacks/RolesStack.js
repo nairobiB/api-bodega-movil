@@ -5,7 +5,7 @@ import Crudroles from "../Roles/Crudroles";
 import editar from "../Roles/Editarrol";
 
 const Stack = createStackNavigator();
-export default function RolesStack() {
+export default function RolesStack(route) {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Roles" component={Roles} options={{ title: "" }} />

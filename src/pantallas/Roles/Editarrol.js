@@ -28,7 +28,9 @@ export default function App(props) {
       await Axios.post("/roles/editar", {
         nombreRol: data.nombreRol,
       })
+
         .then(async (data) => {
+          console.log(data);
           const json = data.data;
           if (json.errores.length == 0) {
             nombreRol = json.data.nombreRol;
@@ -37,6 +39,7 @@ export default function App(props) {
               textoMensaje += element.mensaje + ". ";
             });
           }
+          console.log(data);
         })
         .catch((error) => {
           textoMensaje = error;
@@ -56,6 +59,7 @@ export default function App(props) {
       Alert.alert(titulo, "Debe enviar los datos correctos");
     }
   };
+
   return (
     <ScrollView style={Estilos.container} showsVerticalScrollIndicator={false}>
       <View style={Estilos.principalView}>
@@ -92,18 +96,6 @@ export default function App(props) {
           </View>
 
           <View style={Estilos.contenedorBotonesCrud}>
-            {/* <Button
-              color={"#313087"}
-              style={Estilos.botones}
-              onPress={agregar}
-              title="Guardar"
-            />
-            <Button
-              color={"#313087"}
-              style={Estilos.botones}
-              onPress={agregar}
-              title="Cancelar"
-            /> */}
             <Button
               color={"#313087"}
               style={Estilos.botonescrud}
