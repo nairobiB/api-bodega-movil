@@ -9,6 +9,8 @@ import Productos from "../pantallas/Stacks/ProductosStack";
 import Usuarios from "../pantallas/Stacks/UsuariosStack";
 import Sucursales from "../pantallas/Stacks/SucursalesStack";
 import Perfil from "../pantallas/Perfil";
+import Categorias from "../pantallas/Stacks/CategoriasStack";
+import Secciones from "../pantallas/Stacks/SeccionesStack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 const Drawer = createDrawerNavigator();
@@ -29,6 +31,8 @@ const Hamburger = () => {
         <Drawer.Screen name="Gestión Sucursales" component={Sucursales} />
         <Drawer.Screen name="Gestión Personal" component={Personal} />
         <Drawer.Screen name="Gestión Usuarios" component={Usuarios} />
+        <Drawer.Screen name="Gestión Secciones" component={Secciones} />
+        <Drawer.Screen name="Gestión Categorias" component={Categorias} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
